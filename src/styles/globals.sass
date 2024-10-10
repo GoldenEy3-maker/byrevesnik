@@ -1,0 +1,16 @@
+@import "fonts"
+@import "utils"
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+:root
+  font-size: 16px
+
+@layer utilities
+  .container
+    max-width: 1900px
+    width: 100%
+    padding-inline: calc-clamp(1rem, 3rem, 375, 1440)
+    margin-inline: auto
