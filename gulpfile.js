@@ -139,6 +139,7 @@ function styles() {
       sass({
         outputStyle: "compressed",
         silenceDeprecations: ["legacy-js-api"],
+        includePaths: ["node_modules"],
       }).on("error", sass.logError)
     )
     .pipe(
