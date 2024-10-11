@@ -1,4 +1,5 @@
 extends layouts/root.pug
+include ../components/button
 
 block content
   main(class="pt-[115px] pb-[200px]")
@@ -23,4 +24,5 @@ block content
           img(class="rounded-[80px] w-[670px] mx-auto h-[800px] object-cover" src="assets/img/hero-first-layer.png" alt="")
         div(class='absolute top-calc(100%-800px) left-1/2 -translate-x-1/2')
           img(class="rounded-[80px] w-[670px] mx-auto h-[800px] object-cover" src="assets/img/hero-second-layer.png" alt="")
+      a(href="#" class="border border-accent rounded-xl inline-flex items-center w-[60px] h-[60px] p-2 justify-center text-accent focus-visible:outline-none focus-visible:ring focus-visible:ring-accent") PDF
 
