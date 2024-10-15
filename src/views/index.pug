@@ -2,11 +2,11 @@ extends layouts/root.pug
 include ../components/button
 
 block content
-  main(class="pt-[115px] pb-[200px] space-y-[115px]")
+  main(class="pt-[215px] pb-[200px] space-y-[115px]")
     section(class="container min-h-svh")
-      div(class="relative max-w-[1200px] mx-auto pb-[800px]")
-        h1(class="text-[9.5rem] uppercase relative text-center z-10 text-text font-playfair mb-[80px]") Буревестник
-        blockquote(class="flex flex-col text-[1.75rem] font-playfair text-text-triary pb-[120px]")
+      div(class="relative" id="hero-container")
+        h1(class="text-[9.5rem] uppercase relative text-center z-10 text-text font-playfair mb-[80px]" id="hero-title") Буревестник
+        blockquote(class="flex flex-col text-[1.75rem] max-w-[1200px] mx-auto font-playfair text-text-triary" id="hero-text")
           i(class="ml-[15%] mb-4") Над седой равниной моря ветер тучи собирает.
           i(class="ml-[40%]") Между тучами и морем гордо реет Буревестник…
           div(class="flex items-center text-text-secondary justify-end mt-12 text-lg gap-3")
@@ -20,14 +20,23 @@ block content
               path(d="M6.34474 23.3281C6.66358 22.5664 5.26189 21.9754 5.93446 21.0791C6.96076 21.6294 7.43601 23.4314 6.73817 24.0944C6.64553 24.1815 6.50596 24.2999 6.40249 24.2871C5.40988 24.1664 4.42087 24.005 3.69416 23.2538C3.55098 23.1063 3.51609 22.8613 3.43066 22.6616C3.63641 22.6373 3.8614 22.5467 4.04428 22.5989C4.81431 22.8184 5.5711 23.0796 6.34474 23.3292V23.3281Z" fill="currentColor")
               path(d="M32.4734 6.47534C32.5131 6.70523 32.5492 6.9061 32.5841 7.10812C31.4747 7.3624 30.3534 7.62015 29.1045 7.90577C29.5593 7.59345 29.9058 7.25209 30.3257 7.08955C31.0067 6.82598 31.7358 6.67853 32.4734 6.47534Z" fill="currentColor")
             span Максим Горький
-        div(class="z-20 absolute top-[calc(100%-800px)] left-1/2 -translate-x-1/2")
-          img(class="rounded-[80px] w-[670px] mx-auto h-[800px] object-cover" src="assets/img/hero-first-layer.png" alt="")
-        div(class='absolute top-calc(100%-800px) left-1/2 -translate-x-1/2')
-          img(class="rounded-[80px] w-[670px] mx-auto h-[800px] object-cover" src="assets/img/hero-second-layer.png" alt="")
-      div(class="mt-14")
+        div(class="absolute top-[calc(100%+120px)] opacity-0 left-12 flex gap-x-2" id="hero-address")
+          span(class="text-text-secondary")
+            svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
+          p(class="font-light") Жилой комплекс класса
+            | 
+            br
+            | комфорт на&nbsp;ул. Анатолия, 24
+
+        div(class="z-20 absolute top-[calc(100%+120px)] w-[670px] h-[800px] rounded-[80px] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
+          img(class="object-cover object-top w-full h-full" src="assets/img/hero-first-layer.png" alt="")
+        div(class='absolute top-[calc(100%+120px)] left-1/2 rounded-[80px] w-[670px] h-[800px] overflow-hidden -translate-x-1/2' id="hero-second-layer")
+          img(class="object-cover object-top w-full h-full" src="assets/img/hero-second-layer.png" alt="")
+      div(class="pt-[400px]")
         a(href="#" class="border border-text-secondary rounded-xl inline-flex items-center w-[60px] h-[60px] p-2 justify-center text-text-secondary focus-visible:outline-none focus-visible:ring focus-visible:ring-text-secondary") PDF
 
-    section(class='container')
+    section(class='container' id="about")
       h2(class="text-7xl text-center text-text font-playfair leading-tight") Изысканный комплекс 
         |
         br 
@@ -35,8 +44,8 @@ block content
       hr(class="bg-accent h-0.5 w-[112px] my-12 mx-auto")
       blockquote(class="text-center font-playfair text-text-triary text-[1.25rem] leading-normal max-w-[670px] mx-auto") 
         i 8-ми этажный дом клубного типа, в&nbsp;стиле неоклассики, где высота потолков от&nbsp;2,9&nbsp;метра. Во&nbsp;дворе нет машин, он&nbsp;закрыт для посторонних. Собственный зелёный сквер, детские и&nbsp;спортивные площадки, вело-дорожка с&nbsp;элементами памп-трека
-      div(class="")
-        div(class="flex overflow-hidden gap-[7.77%] [counter-reset:queue_0]")
+      div(class="overflow-hidden max-w-full" id="queue-container")
+        div(id="queue-list" class="flex gap-[7.77%] w-auto [counter-reset:queue_0]")
           div(class="flex items-end shrink-0 [counter-increment:queue_1] before:content-[counter(queue,upper-roman)] before:inline-block before:text-[659px] before:leading-[550px] before:font-playfair before:text-text-secondary/20")
             div 
               span(class="text-text-triary font-light mb-9 inline-block") 1 очередь
@@ -69,7 +78,39 @@ block content
                 div
                   h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 35 кладовых
                   p(class="text-sm text-text font-light") На подземном этаже
-    section(class="container") 
+          div(class="flex items-end shrink-0 [counter-increment:queue_1] before:content-[counter(queue,upper-roman)] before:inline-block before:text-[659px] before:leading-[550px] before:font-playfair before:text-text-secondary/20")
+            div 
+              span(class="text-text-triary font-light mb-9 inline-block") 2 очередь
+              div(class="grid grid-cols-[repeat(2,224px)] grid-rows-2 gap-x-14 gap-y-8")  
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 28 квартир
+                  p(class="text-sm text-text font-light") 12 уникальных планировок
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") до 180 м²
+                  p(class="text-sm text-text font-light") Площадь от 40м² до 180м²
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 17 мест
+                  p(class="text-sm text-text font-light") Машино-места на подземном паркинге
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 35 кладовых
+                  p(class="text-sm text-text font-light") На подземном этаже
+          iv(class="flex items-end shrink-0 [counter-increment:queue_1] before:content-[counter(queue,upper-roman)] before:inline-block before:text-[659px] before:leading-[550px] before:font-playfair before:text-text-secondary/20")
+            div 
+              span(class="text-text-triary font-light mb-9 inline-block") 2 очередь
+              div(class="grid grid-cols-[repeat(2,224px)] grid-rows-2 gap-x-14 gap-y-8")  
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 28 квартир
+                  p(class="text-sm text-text font-light") 12 уникальных планировок
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") до 180 м²
+                  p(class="text-sm text-text font-light") Площадь от 40м² до 180м²
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 17 мест
+                  p(class="text-sm text-text font-light") Машино-места на подземном паркинге
+                div
+                  h3(class="text-[2rem] mb-2 text-text-secondary font-playfair") 35 кладовых
+                  p(class="text-sm text-text font-light") На подземном этаже
+    section(class="container" id="history") 
       h2(class="text-7xl text-center text-text font-playfair leading-tight") История с которой 
         | 
         br
@@ -77,37 +118,42 @@ block content
       hr(class="bg-accent h-0.5 w-[112px] my-12 mx-auto")
       blockquote(class="text-center font-playfair text-text-triary text-[1.25rem] leading-normal max-w-[720px] mx-auto") 
         i От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула
-      div(class="flex mt-[100px]") 
-        div(class="swiper history-swiper-text ml-[calc(1/12*100%)] text-[1.25rem] font-light w-[calc(4/12*100%)] mr-0")
+      div(class="flex items-end mt-[100px]") 
+        div(class="swiper h-full overflow-visible ml-[calc(1/12*100%)] text-[1.25rem] font-light w-[calc(4/12*100%)] mr-0" data-history-swiper-text)
           div(class="swiper-wrapper")
-            div(class="swiper-slide")
-              p Согласно плану 1837&nbsp;года, здесь были запланированы соляные склады, а&nbsp;к&nbsp;1856 году они уже существовали. Позднее рядом возникла площадь, сначала Соляная, затем Хлебная, а&nbsp;после прихода советской власти&nbsp;&mdash; Красная. Здесь проходили первомайские демонстрации, но&nbsp;уже в&nbsp;1950 году площадь исчезла с&nbsp;карты, уступив место жилым домам.
-            div(class="swiper-slide")
-              p Этот уголок Барнаула, ныне застроенный многоэтажками, хранит в&nbsp;себе богатую историю, начинающуюся с&nbsp;начала XIX&nbsp;века. Уже к&nbsp;1820 году здесь появились полноценные кварталы, а&nbsp;улица, ныне известная как Анатолия, тогда называлась Новолинейной и&nbsp;была северной границей города. В&nbsp;середине XIX века её&nbsp;переименовали в&nbsp;Павловскую, в&nbsp;честь Павловского сереброплавильного завода, игравшего ключевую роль в&nbsp;переработке серебра. В&nbsp;1920-х годах улица получила идеологическое название Комиссарская, а&nbsp;в&nbsp;1927 году&nbsp;&mdash; имя революционера Матвея Ворожцова (псевдоним &laquo;Анатолий&raquo;).
-            div(class="swiper-slide")
-              p Будущий переулок Горького долго оставался безымянным, пока с&nbsp;постройкой моста в&nbsp;1885 году не&nbsp;получил название Мостовой. В&nbsp;1930-е годы его переименовали в&nbsp;честь писателя Максима Горького.
-            div(class="swiper-slide")
-              p В&nbsp;начале&nbsp;XX века район Хлебной площади был центром мелкого бизнеса. Здесь находились лавки, мастерские, а&nbsp;также три усадьбы на&nbsp;месте нынешних домов по&nbsp;ул. Анатолия. Особенно выделялась усадьба семьи Астраханцевых&nbsp;&mdash; старообрядцев, достигших успеха в&nbsp;торговле.
-            div(class="swiper-slide")
-              p История этого места насыщена событиями и&nbsp;людьми, заслуживающими памяти. От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула.
-          div(class="flex items-center")
-            button(type="button" class="swiper-button-prev")
+            div(class="group !opacity-0 [&.swiper-slide-active]:!opacity-100 transition-all duration-500 swiper-slide")
+              div(class="translate-y-11 transition-all duration-500 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0")
+                p Согласно плану 1837&nbsp;года, здесь были запланированы соляные склады, а&nbsp;к&nbsp;1856 году они уже существовали. Позднее рядом возникла площадь, сначала Соляная, затем Хлебная, а&nbsp;после прихода советской власти&nbsp;&mdash; Красная. Здесь проходили первомайские демонстрации, но&nbsp;уже в&nbsp;1950 году площадь исчезла с&nbsp;карты, уступив место жилым домам.
+            div(class="group !opacity-0 [&.swiper-slide-active]:!opacity-100 transition-all duration-500 swiper-slide")
+              div(class="translate-y-11 transition-all duration-500 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0")
+                p Этот уголок Барнаула, ныне застроенный многоэтажками,&nbsp;хранит в&nbsp;себе богатую историю, начинающуюся с&nbsp;начала XIX&nbsp;века. Уже к&nbsp;1820 году здесь появились полноценные кварталы, а&nbsp;улица, ныне известная как Анатолия, тогда называлась Новолинейной и&nbsp;была северной границей города. В&nbsp;середине XIX века её&nbsp;переименовали в&nbsp;Павловскую, в&nbsp;честь Павловского сереброплавильного завода, игравшего ключевую роль в&nbsp;переработке серебра. В&nbsp;1920-х годах улица получила идеологическое название Комиссарская, а&nbsp;в&nbsp;1927 году&nbsp;&mdash; имя революционера Матвея Ворожцова (псевдоним &laquo;Анатолий&raquo;).
+            div(class="group !opacity-0 [&.swiper-slide-active]:!opacity-100 transition-all duration-500 swiper-slide")
+              div(class="translate-y-11 transition-all duration-500 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0")
+                p Будущий переулок Горького долго оставался безымянным, пока с&nbsp;постройкой моста в&nbsp;1885 году не&nbsp;получил название Мостовой. В&nbsp;1930-е годы его переименовали в&nbsp;честь писателя Максима Горького.
+            div(class="group !opacity-0 [&.swiper-slide-active]:!opacity-100 transition-all duration-500 swiper-slide")
+              div(class="translate-y-11 transition-all duration-500 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0")
+                p В&nbsp;начале&nbsp;XX века район Хлебной площади был центром мелкого бизнеса. Здесь находились лавки, мастерские, а&nbsp;также три усадьбы на&nbsp;месте нынешних домов по&nbsp;ул. Анатолия. Особенно выделялась усадьба семьи Астраханцевых&nbsp;&mdash; старообрядцев, достигших успеха в&nbsp;торговле.
+            div(class="group !opacity-0 [&.swiper-slide-active]:!opacity-100 transition-all duration-500 swiper-slide")
+              div(class="translate-y-11 transition-all duration-500 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:translate-y-0")
+                p История этого места насыщена событиями и&nbsp;людьми, заслуживающими памяти. От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула.
+          div(class="flex items-center pt-10")
+            button(type="button" class="swiper-button-prev disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M40 24H8M8 24L9.19566 23.5018C16.0815 20.6327 21.4507 15.0105 24 8M8 24C15.0105 26.5493 20.6327 31.9185 23.5018 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
-            button(type="button" class="swiper-button-next")
+            button(type="button" class="swiper-button-next disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M8 24H40M40 24L38.8043 23.5018C31.9185 20.6327 26.5493 15.0105 24 8M40 24C32.9895 26.5493 27.3673 31.9185 24.4982 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
-        div(class="swiper history-swiper-img w-[calc(5.5/12*100%)] mr-0")
+        div(class="swiper w-[calc(5.5/12*100%)] mr-0" data-history-swiper-img)
           div(class="swiper-wrapper")
             div(class="swiper-slide")
-              img(src="assets/img/history-1.webp" alt="")
+              img(src="assets/img/history-1.webp" class="object-cover w-full h-full" alt="")
             div(class="swiper-slide")
-              img(src="assets/img/history-2.webp" alt="")
+              img(src="assets/img/history-2.webp" class="object-cover w-full h-full" alt="")
             div(class="swiper-slide")
-              img(src="assets/img/history-3.webp" alt="")
+              img(src="assets/img/history-3.webp" class="object-cover w-full h-full" alt="")
             div(class="swiper-slide")
-              img(src="assets/img/history-4.webp" alt="")
+              img(src="assets/img/history-4.webp" class="object-cover w-full h-full" alt="")
             div(class="swiper-slide")
-              img(src="assets/img/history-5.webp" alt="")
+              img(src="assets/img/history-5.webp" class="object-cover w-full h-full" alt="")
 
 

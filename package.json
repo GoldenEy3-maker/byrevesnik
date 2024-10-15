@@ -40,7 +40,10 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "gulp-pug": "^5.0.0",
+    "lenis": "^1.1.14",
+    "split-type": "^0.3.4",
     "swiper": "^11.1.14",
     "tailwindcss": "^3.4.10"
   }
