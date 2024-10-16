@@ -27,14 +27,16 @@ export default {
         background: "#ECE4DA",
         text: {
           DEFAULT: "#37332A",
-          secondary: "#B79F7F",
           triary: "#74807F",
         },
         accent: {
           DEFAULT: "#B79F7F",
         },
-        danger: {
+        destructive: {
           DEFAULT: "#A55205",
+        },
+        border: {
+          DEFAULT: "#666666",
         },
       },
     },

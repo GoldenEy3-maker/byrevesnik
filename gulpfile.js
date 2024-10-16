@@ -23,14 +23,13 @@ import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
+import json from "@rollup/plugin-json";
 
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 import imageminWebp from "imagemin-webp";
 
 import ttf2woff from "gulp-ttf2woff";
 import ttf2woff2 from "gulp-ttf2woff2";
-
-const isDev = process.env.NODE_ENV === "development";
 
 const browserSync = browserSyncCreate();
 
@@ -102,7 +101,7 @@ function views() {
         value: "%MDS%",
         append: {
           key: "v",
-          to: ["js", "css"],
+          to: [{ type: "js", files: ["main.min.js"] }, "css", "image"],
         },
       })
     )
@@ -119,6 +118,7 @@ function scripts() {
       nodeResolve(),
       typescript(),
       terser(),
+      json(),
     ],
     cache: rollupCache,
     output: {
