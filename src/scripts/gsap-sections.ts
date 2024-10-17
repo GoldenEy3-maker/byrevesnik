@@ -4,8 +4,8 @@ export function initGsapSections() {
   const runHeroContainerAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero-container",
-      start: "top 21%",
-      end: "+=2000",
+      start: "top top",
+      end: "max",
       scrub: true,
       pin: true,
     },
@@ -39,14 +39,14 @@ export function initGsapSections() {
       }),
       gsap.to("#hero-first-layer", {
         width: "100%",
-        height: 800,
-        y: -650,
+        height: "90vh",
+        y: -700,
         duration: 2,
       }),
       gsap.to("#hero-second-layer", {
         width: "100%",
-        height: 800,
-        y: -650,
+        height: "90vh",
+        y: -700,
         duration: 2,
       }),
       gsap.to("#hero-address", {
@@ -55,20 +55,20 @@ export function initGsapSections() {
       }),
     ]);
 
-  const runQueueContainerAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#queue-container",
-      start: "top 25%",
-      end: `+=2000`,
-      scrub: true,
-      pin: true,
-    },
-  });
+  // const runQueueContainerAnimation = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "#queue-container",
+  //     start: "top 25%",
+  //     end: `+=2000`,
+  //     scrub: true,
+  //     pin: true,
+  //   },
+  // });
 
-  runQueueContainerAnimation.add([
-    gsap.to("#queue-list", {
-      x: `-80%`,
-      duration: 2,
-    }),
-  ]);
+  // runQueueContainerAnimation.add([
+  //   gsap.to("#queue-list", {
+  //     x: `-100%`,
+  //     duration: 2,
+  //   }),
+  // ]);
 }
