@@ -16,42 +16,42 @@ export function initGsapSections() {
       gsap.to("#hero-text", {
         y: -100,
         opacity: 0,
-        duration: 1,
+        // duration: 100,
       }),
       gsap.to("#hero-first-layer", {
         y: -500,
-        duration: 2,
+        // duration: 200,
       }),
       gsap.to("#hero-second-layer", {
         y: -500,
-        duration: 2,
+        // duration: 200,
       }),
       gsap.to("#hero-address", {
         opacity: 1,
-        duration: 2,
-        delay: 0.5,
+        // duration: 200,
+        // delay: 50,
       }),
     ])
     .add([
       gsap.to("#hero-title", {
         opacity: 0,
-        duration: 1,
+        // duration: 100,
       }),
       gsap.to("#hero-first-layer", {
         width: "100%",
         height: "90vh",
         y: -700,
-        duration: 2,
+        // duration: 200,
       }),
       gsap.to("#hero-second-layer", {
         width: "100%",
         height: "90vh",
         y: -700,
-        duration: 2,
+        // duration: 200,
       }),
       gsap.to("#hero-address", {
         opacity: 0,
-        duration: 1,
+        // duration: 100,
       }),
     ]);
 
