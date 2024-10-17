@@ -82,6 +82,7 @@ function clean() {
 function watch() {
   browserSync.init({
     server: "./dist",
+    open: false,
   });
 
   gulp.watch(paths.views.watch, gulp.parallel(views, styles));

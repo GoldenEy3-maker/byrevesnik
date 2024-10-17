@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 export function initGsapSections() {
-  const runAnimation = gsap.timeline({
+  const runHeroContainerAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero-container",
       start: "top 21%",
@@ -11,7 +11,7 @@ export function initGsapSections() {
     },
   });
 
-  runAnimation
+  runHeroContainerAnimation
     .add([
       gsap.to("#hero-text", {
         y: -100,
@@ -55,24 +55,20 @@ export function initGsapSections() {
       }),
     ]);
 
-  const queueList = document.getElementById("queue-list");
+  const runQueueContainerAnimation = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#queue-container",
+      start: "top 25%",
+      end: `+=2000`,
+      scrub: true,
+      pin: true,
+    },
+  });
 
-  if (queueList) {
-    const runAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#queue-container",
-        start: "top 25%",
-        end: `+=${queueList?.offsetWidth}`,
-        scrub: true,
-        pin: true,
-      },
-    });
-
-    runAnimation.add([
-      gsap.to("#queue-list", {
-        x: `-${queueList?.offsetWidth}`,
-        duration: 2,
-      }),
-    ]);
-  }
+  runQueueContainerAnimation.add([
+    gsap.to("#queue-list", {
+      x: `-80%`,
+      duration: 2,
+    }),
+  ]);
 }
