@@ -145,10 +145,8 @@ export function initFirstGsapSection() {
       trigger: "#hero-container",
       start: "top top",
       end: "+=2000",
-      // end: "max",
-      scrub: 1.0,
       pin: true,
-      toggleActions: "restart none reverse none",
+      scrub: true,
     },
   });
 
@@ -225,9 +223,8 @@ export function initSecondGsapSection() {
       trigger: "#queue-container",
       start: "top 20%",
       end: "+=2000",
-      scrub: 1.0,
       pin: true,
-      toggleActions: "restart none reverse none",
+      scrub: true,
     },
   });
 
