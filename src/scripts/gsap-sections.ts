@@ -22,11 +22,11 @@ export function initFirstGsapSection() {
       secondStep: {
         heroFirstLayer: {
           yPercent: -80,
-          height: "+=20",
+          height: "+=30",
         },
         heroSecondLayer: {
           yPercent: -80,
-          height: "+=20",
+          height: "+=30",
         },
       },
     },
@@ -42,11 +42,11 @@ export function initFirstGsapSection() {
       secondStep: {
         heroFirstLayer: {
           yPercent: -75,
-          height: "+=20",
+          height: "+=30",
         },
         heroSecondLayer: {
           yPercent: -75,
-          height: "+=20",
+          height: "+=30",
         },
       },
     },
@@ -62,11 +62,11 @@ export function initFirstGsapSection() {
       secondStep: {
         heroFirstLayer: {
           yPercent: -65,
-          height: "+=20",
+          height: "+=30",
         },
         heroSecondLayer: {
           yPercent: -65,
-          height: "+=20",
+          height: "+=30",
         },
       },
     },
@@ -209,29 +209,37 @@ export function initFirstGsapSection() {
 }
 
 export function initSecondGsapSection() {
-  const list = document.querySelector("#queue-list");
-  let listWidth = 0;
+  let tl: GSAPTimeline;
+  const workingAnimationMq = window.matchMedia("(min-width: 768px)");
 
-  if (list?.children.length) {
-    for (let i = 0; i < list.children.length; i++) {
-      listWidth += (list.children.item(i) as HTMLElement).offsetWidth;
+  const list = document.querySelector("#queue-list");
+
+  function initAnimation(mq: MediaQueryList) {
+    if (mq.matches) {
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#queue-container",
+          start: "top 20%",
+          end: "bottom top",
+          pin: true,
+          scrub: true,
+        },
+      });
+
+      tl.add([
+        gsap.to("#queue-list", {
+          x: () => -(list?.children.item(0) as HTMLElement).offsetWidth,
+          duration: 2,
+        }),
+      ]);
+    } else {
+      if (tl) tl.kill();
     }
   }
 
-  const runAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#queue-container",
-      start: "top 20%",
-      end: "bottom top",
-      pin: true,
-      scrub: true,
-    },
-  });
+  initAnimation(workingAnimationMq);
 
-  runAnimation.add([
-    gsap.to("#queue-list", {
-      x: () => -(list?.children.item(0) as HTMLElement).offsetWidth,
-      duration: 2,
-    }),
-  ]);
+  workingAnimationMq.addEventListener("change", function () {
+    initAnimation(this);
+  });
 }
