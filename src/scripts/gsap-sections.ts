@@ -144,7 +144,7 @@ export function initFirstGsapSection() {
     scrollTrigger: {
       trigger: "#hero-container",
       start: "top top",
-      end: "+=2000",
+      end: "bottom top",
       pin: true,
       scrub: true,
     },
@@ -222,7 +222,7 @@ export function initSecondGsapSection() {
     scrollTrigger: {
       trigger: "#queue-container",
       start: "top 20%",
-      end: "+=2000",
+      end: "bottom top",
       pin: true,
       scrub: true,
     },
