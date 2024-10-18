@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import Lenis from "lenis";
-import { initGsapSections } from "./gsap-sections";
+import { initFirstGsapSection, initSecondGsapSection } from "./gsap-sections";
 import { initHistorySlider } from "./history-slider";
 import { initContactsMap } from "./contacts-map";
 import { initTelMask } from "./tel-mask";
@@ -9,7 +9,21 @@ import { handleSubmitForm } from "./forms";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// const navLinks = document.querySelectorAll("[data-nav-link]");
+// const lenis = new Lenis();
+
+// lenis.on("scroll", (e) => {
+//   // console.log(e);
+// });
+
+// lenis.on("scroll", ScrollTrigger.update);
+
+// gsap.ticker.add((time) => {
+//   lenis.raf(time * 1000);
+// });
+
+// gsap.ticker.lagSmoothing(0);
+
+const navLinks = document.querySelectorAll("[data-nav-link]");
 
 // if (navLinks.length)
 //   navLinks.forEach((link) => {
@@ -25,7 +39,8 @@ gsap.registerPlugin(ScrollTrigger);
 //   });
 
 initHistorySlider();
-initGsapSections();
+initFirstGsapSection();
+initSecondGsapSection();
 initTelMask();
 initContactsMap();
 

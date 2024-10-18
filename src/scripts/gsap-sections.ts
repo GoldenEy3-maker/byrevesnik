@@ -1,74 +1,240 @@
-import gsap from "gsap";
+import { gsap } from "gsap";
 
-export function initGsapSections() {
-  const runHeroContainerAnimation = gsap.timeline({
+export function initFirstGsapSection() {
+  const BreakpointsMap = {
+    XL2: "(max-width: 1340px)",
+    XL: "(max-width: 1200px)",
+    MD2: "(max-width: 991px)",
+    MD: "(max-width: 768px)",
+    SM: "(max-width: 640px)",
+  };
+
+  const mediaAnimationValuesMap = {
+    DEFAULT: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -60,
+        },
+        heroSecondLayer: {
+          yPercent: -60,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -80,
+          height: "+=20",
+        },
+        heroSecondLayer: {
+          yPercent: -80,
+          height: "+=20",
+        },
+      },
+    },
+    [BreakpointsMap.XL2]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -60,
+        },
+        heroSecondLayer: {
+          yPercent: -60,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -75,
+          height: "+=20",
+        },
+        heroSecondLayer: {
+          yPercent: -75,
+          height: "+=20",
+        },
+      },
+    },
+    [BreakpointsMap.XL]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -65,
+          height: "+=20",
+        },
+        heroSecondLayer: {
+          yPercent: -65,
+          height: "+=20",
+        },
+      },
+    },
+    [BreakpointsMap.MD2]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -55,
+          height: "+=30",
+        },
+        heroSecondLayer: {
+          yPercent: -55,
+          height: "+=30",
+        },
+      },
+    },
+    [BreakpointsMap.MD]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -40,
+        },
+        heroSecondLayer: {
+          yPercent: -40,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+          height: "+=30",
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+          height: "+=30",
+        },
+      },
+    },
+    [BreakpointsMap.SM]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -35,
+        },
+        heroSecondLayer: {
+          yPercent: -35,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+          height: "+=30",
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+          height: "+=30",
+        },
+      },
+    },
+  };
+
+  const mediaQueryList = Object.values(BreakpointsMap).map((query) =>
+    window.matchMedia(query)
+  );
+
+  function getMatchedMedia() {
+    return mediaQueryList.filter((mq) => mq.matches).at(-1);
+  }
+
+  const runAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero-container",
       start: "top top",
-      end: "max",
-      scrub: true,
+      end: "+=2000",
+      // end: "max",
+      scrub: 1.0,
       pin: true,
+      toggleActions: "restart none reverse none",
     },
   });
 
-  runHeroContainerAnimation
-    .add([
-      gsap.to("#hero-text", {
-        y: -100,
-        opacity: 0,
-        // duration: 100,
-      }),
-      gsap.to("#hero-first-layer", {
-        y: -500,
-        // duration: 200,
-      }),
-      gsap.to("#hero-second-layer", {
-        y: -500,
-        // duration: 200,
-      }),
-      gsap.to("#hero-address", {
-        opacity: 1,
-        // duration: 200,
-        // delay: 50,
-      }),
-    ])
-    .add([
-      gsap.to("#hero-title", {
-        opacity: 0,
-        // duration: 100,
-      }),
-      gsap.to("#hero-first-layer", {
-        width: "100%",
-        height: "90vh",
-        y: -700,
-        // duration: 200,
-      }),
-      gsap.to("#hero-second-layer", {
-        width: "100%",
-        height: "90vh",
-        y: -700,
-        // duration: 200,
-      }),
-      gsap.to("#hero-address", {
-        opacity: 0,
-        // duration: 100,
-      }),
-    ]);
+  initAnimation(getMatchedMedia()?.media ?? "DEFAULT");
 
-  // const runQueueContainerAnimation = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: "#queue-container",
-  //     start: "top 25%",
-  //     end: `+=2000`,
-  //     scrub: true,
-  //     pin: true,
-  //   },
-  // });
+  function initAnimation(mqKey: string) {
+    console.log(mqKey);
+    runAnimation
+      .add([
+        gsap.to("#hero-text", {
+          yPercent: -50,
+          opacity: 0,
+        }),
+        gsap.to("#hero-first-layer", {
+          yPercent:
+            mediaAnimationValuesMap[mqKey].firstStep.heroFirstLayer.yPercent,
+        }),
+        gsap.to("#hero-second-layer", {
+          yPercent:
+            mediaAnimationValuesMap[mqKey].firstStep.heroSecondLayer.yPercent,
+        }),
+        gsap.to("#hero-address", {
+          opacity: 1,
+        }),
+      ])
+      .add([
+        gsap.to("#hero-title", {
+          opacity: 0,
+        }),
+        gsap.to("#hero-first-layer", {
+          maxWidth: "100%",
+          width: "100%",
+          height:
+            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.height,
+          yPercent:
+            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
+        }),
+        gsap.to("#hero-second-layer", {
+          maxWidth: "100%",
+          width: "100%",
+          height:
+            mediaAnimationValuesMap[mqKey].secondStep.heroSecondLayer.height,
+          yPercent:
+            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
+        }),
+        gsap.to("#hero-address", {
+          opacity: 0,
+        }),
+      ]);
 
-  // runQueueContainerAnimation.add([
-  //   gsap.to("#queue-list", {
-  //     x: `-100%`,
-  //     duration: 2,
-  //   }),
-  // ]);
+    return runAnimation;
+  }
+
+  mediaQueryList.forEach((mq) => {
+    mq.addEventListener("change", (changedMq) => {
+      initAnimation(changedMq.media);
+      runAnimation.invalidate();
+    });
+  });
+}
+
+export function initSecondGsapSection() {
+  const list = document.querySelector("#queue-list");
+  let listWidth = 0;
+
+  if (list?.children.length) {
+    for (let i = 0; i < list.children.length; i++) {
+      listWidth += (list.children.item(i) as HTMLElement).offsetWidth;
+    }
+  }
+
+  const runAnimation = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#queue-container",
+      start: "top 20%",
+      end: "+=2000",
+      scrub: 1.0,
+      pin: true,
+      toggleActions: "restart none reverse none",
+    },
+  });
+
+  runAnimation.add([
+    gsap.to("#queue-list", {
+      x: () => -(list?.children.item(0) as HTMLElement).offsetWidth,
+      duration: 2,
+    }),
+  ]);
 }
