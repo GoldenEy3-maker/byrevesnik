@@ -14,7 +14,7 @@ export function initHistorySlider() {
       },
       next: {
         opacity: 1,
-        translate: ["100%", 0, 0],
+        translate: ["102%", 0, 0],
       },
     },
     speed: 600,

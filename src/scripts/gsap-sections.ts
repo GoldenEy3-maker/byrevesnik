@@ -6,7 +6,8 @@ export function initFirstGsapSection() {
     XL: "(max-width: 1200px)",
     MD2: "(max-width: 991px)",
     MD: "(max-width: 768px)",
-    SM: "(max-width: 640px)",
+    SM2: "(max-width: 640px)",
+    SM: "(max-width: 425px)",
   };
 
   const mediaAnimationValuesMap = {
@@ -110,23 +111,43 @@ export function initFirstGsapSection() {
         },
       },
     },
-    [BreakpointsMap.SM]: {
+    [BreakpointsMap.SM2]: {
       firstStep: {
         heroFirstLayer: {
-          yPercent: -35,
+          yPercent: -40,
         },
         heroSecondLayer: {
-          yPercent: -35,
+          yPercent: -40,
         },
       },
       secondStep: {
         heroFirstLayer: {
           yPercent: -45,
-          height: "+=30",
+          height: "+=20",
         },
         heroSecondLayer: {
           yPercent: -45,
-          height: "+=30",
+          height: "+=20",
+        },
+      },
+    },
+    [BreakpointsMap.SM]: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -40,
+        },
+        heroSecondLayer: {
+          yPercent: -40,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -50,
+          height: "+=20",
+        },
+        heroSecondLayer: {
+          yPercent: -50,
+          height: "+=20",
         },
       },
     },
@@ -140,7 +161,7 @@ export function initFirstGsapSection() {
     return mediaQueryList.filter((mq) => mq.matches).at(-1);
   }
 
-  const runAnimation = gsap.timeline({
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero-container",
       start: "top top",
@@ -154,56 +175,53 @@ export function initFirstGsapSection() {
 
   function initAnimation(mqKey: string) {
     console.log(mqKey);
-    runAnimation
-      .add([
-        gsap.to("#hero-text", {
-          yPercent: -50,
-          opacity: 0,
-        }),
-        gsap.to("#hero-first-layer", {
-          yPercent:
-            mediaAnimationValuesMap[mqKey].firstStep.heroFirstLayer.yPercent,
-        }),
-        gsap.to("#hero-second-layer", {
-          yPercent:
-            mediaAnimationValuesMap[mqKey].firstStep.heroSecondLayer.yPercent,
-        }),
-        gsap.to("#hero-address", {
-          opacity: 1,
-        }),
-      ])
-      .add([
-        gsap.to("#hero-title", {
-          opacity: 0,
-        }),
-        gsap.to("#hero-first-layer", {
-          maxWidth: "100%",
-          width: "100%",
-          height:
-            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.height,
-          yPercent:
-            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
-        }),
-        gsap.to("#hero-second-layer", {
-          maxWidth: "100%",
-          width: "100%",
-          height:
-            mediaAnimationValuesMap[mqKey].secondStep.heroSecondLayer.height,
-          yPercent:
-            mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
-        }),
-        gsap.to("#hero-address", {
-          opacity: 0,
-        }),
-      ]);
+    tl.add([
+      gsap.to("#hero-text", {
+        yPercent: -50,
+        opacity: 0,
+      }),
+      gsap.to("#hero-first-layer", {
+        yPercent:
+          mediaAnimationValuesMap[mqKey].firstStep.heroFirstLayer.yPercent,
+      }),
+      gsap.to("#hero-second-layer", {
+        yPercent:
+          mediaAnimationValuesMap[mqKey].firstStep.heroSecondLayer.yPercent,
+      }),
+      gsap.to("#hero-address", {
+        opacity: 1,
+      }),
+    ]).add([
+      gsap.to("#hero-title", {
+        opacity: 0,
+      }),
+      gsap.to("#hero-first-layer", {
+        maxWidth: "100%",
+        width: "100%",
+        height: mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.height,
+        yPercent:
+          mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
+      }),
+      gsap.to("#hero-second-layer", {
+        maxWidth: "100%",
+        width: "100%",
+        height:
+          mediaAnimationValuesMap[mqKey].secondStep.heroSecondLayer.height,
+        yPercent:
+          mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
+      }),
+      gsap.to("#hero-address", {
+        opacity: 0,
+      }),
+    ]);
 
-    return runAnimation;
+    return tl;
   }
 
   mediaQueryList.forEach((mq) => {
     mq.addEventListener("change", (changedMq) => {
       initAnimation(changedMq.media);
-      runAnimation.invalidate();
+      tl.invalidate();
     });
   });
 }
@@ -219,7 +237,7 @@ export function initSecondGsapSection() {
       tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#queue-container",
-          start: "top 20%",
+          start: "top 30%",
           end: "bottom top",
           pin: true,
           scrub: true,
@@ -228,7 +246,7 @@ export function initSecondGsapSection() {
 
       tl.add([
         gsap.to("#queue-list", {
-          x: () => -(list?.children.item(0) as HTMLElement).offsetWidth,
+          x: () => -(list?.children.item(0) as HTMLElement).offsetWidth / 1.5,
           duration: 2,
         }),
       ]);

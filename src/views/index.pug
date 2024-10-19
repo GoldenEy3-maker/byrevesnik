@@ -21,7 +21,7 @@ block content
                 path(d="M6.34474 23.3281C6.66358 22.5664 5.26189 21.9754 5.93446 21.0791C6.96076 21.6294 7.43601 23.4314 6.73817 24.0944C6.64553 24.1815 6.50596 24.2999 6.40249 24.2871C5.40988 24.1664 4.42087 24.005 3.69416 23.2538C3.55098 23.1063 3.51609 22.8613 3.43066 22.6616C3.63641 22.6373 3.8614 22.5467 4.04428 22.5989C4.81431 22.8184 5.5711 23.0796 6.34474 23.3292V23.3281Z" fill="currentColor")
                 path(d="M32.4734 6.47534C32.5131 6.70523 32.5492 6.9061 32.5841 7.10812C31.4747 7.3624 30.3534 7.62015 29.1045 7.90577C29.5593 7.59345 29.9058 7.25209 30.3257 7.08955C31.0067 6.82598 31.7358 6.67853 32.4734 6.47534Z" fill="currentColor")
             span Максим Горький
-        div(class="absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] opacity-0 ~lg/2xl:~left-0/12 ~lg/2xl:~text-sm/base flex gap-x-2" id="hero-address")
+        div(class="absolute left-1/2 -translate-y-1/2 top-full min-[81.25rem]:top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] opacity-0 min-[81.25rem]:~min-[82.5rem]/2xl:~left-0/12 min-[81.25rem]:translate-y-0 ~lg/2xl:~text-sm/base flex gap-x-2" id="hero-address")
           span(class="text-accent")
             svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
               path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
@@ -29,12 +29,11 @@ block content
             | 
             br
             | комфорт на&nbsp;ул. Анатолия, 24
-
         div(class="z-20 absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] max-w-[670px] w-full ~h-[43.125rem]/[50rem] rounded-[80px] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
           img(class="object-cover object-top w-full h-full" src="assets/img/hero-first-layer.png" alt="")
         div(class='absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] left-1/2 rounded-[80px] max-w-[670px] w-full ~h-[43.125rem]/[50rem] overflow-hidden -translate-x-1/2' id="hero-second-layer")
           img(class="object-cover object-top w-full h-full" src="assets/img/hero-second-layer.png" alt="")
-      div(class="~pt-[32rem]/[25rem]")
+      div(class="~min-[26.5625rem]/sm:~pt-[27rem]/[32rem] sm:~pt-[32rem]/[20rem]")
         a(href="#" class="group rounded-xl inline-flex items-center h-[60px] justify-center gap-4 text-accent focus-visible:outline-none focus-visible:ring focus-visible:ring-accent") 
           span(class="border border-accent rounded-xl w-[3.75rem] h-[3.75rem] inline-flex items-center justify-center group-hover:text-white group-hover:bg-accent transition-all duration-300") 
             svg(width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -50,13 +49,13 @@ block content
         i 8-ми этажный дом клубного типа, в&nbsp;стиле неоклассики, где высота потолков от&nbsp;2,9&nbsp;метра. Во&nbsp;дворе нет машин, он&nbsp;закрыт для посторонних. Собственный зелёный сквер, детские и&nbsp;спортивные площадки, вело-дорожка с&nbsp;элементами памп-трека
       div(class="overflow-hidden relative ~mt-[3.75rem]/[6.25rem]" id="queue-container")
         div(id="queue-list" class="flex flex-col md:flex-row gap-y-[3.375rem] gap-x-[7.77%]")
-          div(class="flex w-[calc(7/12*100%)] shrink-0 md:items-end")
+          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(7/12*100%)] shrink-0 min-[62rem]:items-end")
             span(class="inline-block ~h-[6.25rem]/[29.1875rem] ~w-[6rem]/[14rem] ~mr-[2.125rem]/0 shrink-0 text-accent")
               svg(width="100%" height="100%" viewBox="0 0 169 467" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(opacity="0.2" d="M168.754 0.354017V13.5361C153.814 13.9755 142.39 15.7331 134.481 18.8089C127.011 21.4454 121.958 26.7182 119.321 34.6274C116.685 42.0973 115.367 53.9611 115.367 70.2191V397.135C115.367 412.953 116.685 424.817 119.321 432.727C121.958 440.636 127.011 445.909 134.481 448.545C142.39 451.181 153.814 452.939 168.754 453.818V467C158.648 466.121 145.905 465.682 130.526 465.682C115.586 465.242 100.427 465.023 85.0478 465.023C67.9111 465.023 51.8728 465.242 36.9331 465.682C21.9934 465.682 9.90985 466.121 0.682391 467V453.818C15.6221 452.939 26.8269 451.181 34.2967 448.545C42.206 445.909 47.4788 440.636 50.1152 432.727C52.7516 424.817 54.0699 412.953 54.0699 397.135V70.2191C54.0699 53.9611 52.7516 42.0973 50.1152 34.6274C47.4788 26.7182 42.206 21.4454 34.2967 18.8089C26.8269 15.7331 15.6221 13.9755 0.682391 13.5361V0.354017C9.90985 0.793414 21.9934 1.23281 36.9331 1.67221C51.8728 2.11161 67.9111 2.3313 85.0478 2.3313C100.427 2.3313 115.586 2.11161 130.526 1.67221C145.905 1.23281 158.648 0.793414 168.754 0.354017Z" fill="currentColor")
             div(class="flex-1")
               span(class="text-text-triary font-light ~mb-[1.25rem]/[2.25rem] inline-block") 1 очередь
-              div(class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-x-14 ~gap-y-3/8")  
+              div(class="grid grid-cols-1 min-[62rem]:grid-cols-2 gap-x-14 ~gap-y-3/8")  
                 div
                   h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 48 квартир
                   p(class="~text-xs/sm text-text font-light") 23 уникальных планировки
@@ -69,13 +68,13 @@ block content
                 div
                   h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 35 кладовых
                   p(class="~text-xs/sm text-text font-light") На подземном этаже
-          div(class="flex w-[calc(7/12*100%)] shrink-0 md:items-end")
+          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(8/12*100%)] shrink-0 min-[62rem]:items-end")
             span(class="inline-block ~h-[6.25rem]/[29.1875rem] ~w-[6rem]/[27.9375rem] shrink-0 text-accent ~mr-[2.125rem]/0")
               svg(width="100%" height="100%" viewBox="0 0 393 467" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(opacity="0.2" d="M168.754 0.354017V13.5361C153.814 13.9755 142.39 15.7331 134.481 18.8089C127.011 21.4454 121.958 26.7182 119.321 34.6274C116.685 42.0973 115.367 53.9611 115.367 70.2191V397.135C115.367 412.953 116.685 424.817 119.321 432.727C121.958 440.636 127.011 445.909 134.481 448.545C142.39 451.181 153.814 452.939 168.754 453.818V467C158.648 466.121 145.905 465.682 130.526 465.682C115.586 465.242 100.427 465.023 85.0478 465.023C67.9111 465.023 51.8728 465.242 36.9331 465.682C21.9934 465.682 9.90985 466.121 0.682391 467V453.818C15.6221 452.939 26.8269 451.181 34.2967 448.545C42.206 445.909 47.4788 440.636 50.1152 432.727C52.7516 424.817 54.0699 412.953 54.0699 397.135V70.2191C54.0699 53.9611 52.7516 42.0973 50.1152 34.6274C47.4788 26.7182 42.206 21.4454 34.2967 18.8089C26.8269 15.7331 15.6221 13.9755 0.682391 13.5361V0.354017C9.90985 0.793414 21.9934 1.23281 36.9331 1.67221C51.8728 2.11161 67.9111 2.3313 85.0478 2.3313C100.427 2.3313 115.586 2.11161 130.526 1.67221C145.905 1.23281 158.648 0.793414 168.754 0.354017ZM392.103 0.354017V13.5361C377.163 13.9755 365.739 15.7331 357.829 18.8089C350.36 21.4454 345.307 26.7182 342.67 34.6274C340.034 42.0973 338.715 53.9611 338.715 70.2191V397.135C338.715 412.953 340.034 424.817 342.67 432.727C345.307 440.636 350.36 445.909 357.829 448.545C365.739 451.181 377.163 452.939 392.103 453.818V467C381.997 466.121 369.254 465.682 353.875 465.682C338.935 465.242 323.776 465.023 308.397 465.023C291.26 465.023 275.222 465.242 260.282 465.682C245.342 465.682 233.259 466.121 224.031 467V453.818C238.971 452.939 250.176 451.181 257.646 448.545C265.555 445.909 270.828 440.636 273.464 432.727C276.101 424.817 277.419 412.953 277.419 397.135V70.2191C277.419 53.9611 276.101 42.0973 273.464 34.6274C270.828 26.7182 265.555 21.4454 257.646 18.8089C250.176 15.7331 238.971 13.9755 224.031 13.5361V0.354017C233.259 0.793414 245.342 1.23281 260.282 1.67221C275.222 2.11161 291.26 2.3313 308.397 2.3313C323.776 2.3313 338.935 2.11161 353.875 1.67221C369.254 1.23281 381.997 0.793414 392.103 0.354017Z" fill="#B79F7F")
             div(class="flex-1")
               span(class="text-text-triary font-light ~mb-[1.25rem]/[2.25rem] inline-block") 1 очередь
-              div(class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-x-14 ~gap-y-3/8")  
+              div(class="grid grid-cols-1 min-[62rem]:grid-cols-2 gap-x-14 ~gap-y-3/8")  
                 div
                   h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 48 квартир
                   p(class="~text-xs/sm text-text font-light") 23 уникальных планировки
@@ -97,7 +96,7 @@ block content
       blockquote(class="text-center font-playfair text-text-triary ~text-[0.875rem]/[1.25rem] leading-normal max-w-[720px] mx-auto") 
         i От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула
       div(class="flex items-end mt-[100px]") 
-        div(class="swiper h-full overflow-hidden ml-[calc(1/12*100%)] text-[1.25rem] font-light w-[calc(4/12*100%)] mr-0" data-history-swiper-text)
+        div(class="swiper h-full overflow-hidden ~text-base/[1.25rem] font-light w-[calc(4/12*100%)] m-0 min-[81.25rem]:ml-[calc(1/12*100%)]" data-history-swiper-text)
           div(class="swiper-wrapper")
             div(class="swiper-slide transition-all duration-[600ms]")
               div(class="")
