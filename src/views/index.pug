@@ -2,7 +2,7 @@ extends layouts/root.pug
 include ../components/button
 
 block content
-  main(class="pb-[12.5rem] space-y-[7.25rem]")
+  main(class="~pb-[8.75rem]/[12.5rem] space-y-[7.5rem]")
     section(class="container min-h-svh")
       div(class="relative ~pt-[3.75rem]/[7.125rem]" id="hero-container")
         h1(class="~text-[2.75rem]/[9.5rem] uppercase relative text-center z-10 text-text font-playfair ~mb-[2.5rem]/[5rem]" id="hero-title") Буревестник
@@ -123,20 +123,20 @@ block content
         div(class="swiper order-1 lg:order-2 w-full lg:w-[calc(7/12*100%)] xl:w-[calc(5.5/12*100%)] ~h-[20rem]/[30rem] mr-0" data-history-swiper-img)
           div(class="swiper-wrapper")
             div(class="swiper-slide relative overflow-hidden")
-              div(class="slide-inner absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('assets/img/history-1.webp')")
+              div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-1.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
-              div(class="slide-inner absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('assets/img/history-2.webp')")
+              div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-2.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
-              div(class="slide-inner absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('assets/img/history-3.webp')")
+              div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-3.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
-              div(class="slide-inner absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('assets/img/history-4.webp')")
+              div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-4.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
-              div(class="slide-inner absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('assets/img/history-5.webp')")
+              div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-5.webp')] bg-cover bg-center bg-no-repeat")
     section(class="container" id="contacts")
-      h2(class="~text-[1.875rem]/[4.5rem] text-left text-text font-playfair leading-tight") Остались вопросы?
-      div(class="flex mt-20 ml-[calc(1/12*100%)]")
-        div(class="pt-[3.75rem] pb-11 w-[calc(4/12*100%)] flex flex-col")
-          form(method="post" action="test.php" class="space-y-10" novalidate)
+      h2(class="~text-[1.875rem]/[4.5rem] text-left text-text font-playfair leading-tight") Получить консультацию
+      div(class="flex flex-col min-[62rem]:flex-row ~mt-9/20 m-0 min-[81.25rem]:ml-[calc(1/12*100%)]")
+        div(class="min-[62rem]:pt-[3.75rem] ~pb-[3.75rem]/11 w-full md:w-[calc(6/12*100%)] min-[62rem]:w-[calc(4/12*100%)] flex flex-col")
+          form(method="post" action="test.php" class="~space-y-8/10" novalidate)
             div(data-form-control)
               div(class="relative border-b border-border/60")
                 input(type="text" class="peer w-full h-12 py-3 text-2xl focus:outline-none text-text font-light bg-transparent" id="name" name="name" placeholder="" pattern="[А-ЯЁа-яё]{2,}" data-pattern-text="Только кириллица, минимум 2 символа" required)
@@ -148,13 +148,13 @@ block content
                 label(for="name" class='font-light pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 peer-focus:-top-1 peer-focus:text-sm peer-focus:text-text/60 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-text/60 peer-aria-[invalid=true]:text-destructive peer-focus:peer-aria-[invalid=true]:text-destructive/60 peer-[:not(:placeholder-shown)]:peer-aria-[invalid=true]:text-destructive/60 transition-all duration-300') Телефон
               p(class="text-destructive font-light text-sm mt-3" data-form-control-message)
             div
-              +button
+              +button(class="max-md:w-full max-md:text-center max-md:justify-center")
                 span Задать вопрос
-          div(class='mt-auto text-sm')
+          div(class='mt-auto pt-4 text-sm')
             p(class="font-light opacity-80") Нажимая кнопку, вы соглашаетесь 
               |
               br
               | с нашей 
               a(href="#" class="text-accent focus:outline-none focus-visible:ring focus-visible:ring-accent rounded-xl") политикой обработки данных
-        div(class="w-[calc(5/12*100%)] h-[600px] ml-[calc(2/12*100%)]" id='contacts-map')
+        div(class="w-full min-[62rem]:w-[calc(6/12*100%)] xl:w-[calc(5/12*100%)] ~h-[22.5rem]/[37.5rem] ml-auto" id='contacts-map')
 
