@@ -4,6 +4,8 @@ export function initHistorySlider() {
   const interleaveOffset = 0.5;
 
   const historySwiperText = new Swiper("[data-history-swiper-text]", {
+    speed: 600,
+    slidesPerView: 1,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -20,11 +22,16 @@ export function initHistorySlider() {
         translate: ["102%", 0, 0],
       },
     },
-    speed: 600,
+    breakpoints: {
+      1024: {
+        autoHeight: false,
+      },
+    },
   });
   const historySwiperImg = new Swiper("[data-history-swiper-img]", {
     speed: 600,
     slidesPerView: 1,
+    // autoHeight: true,
     watchSlidesProgress: true,
     on: {
       progress: (swiper) => {
