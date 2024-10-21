@@ -1,8 +1,8 @@
 import { lockScroll, unlockScroll } from "./utils";
 
-const modalOverlay = document.querySelector(
+const modalOverlay = document.querySelector<HTMLElement>(
   "[data-modal-overlay]"
-) as HTMLElement | null;
+);
 
 const _modalAnimationDuration = 600;
 
@@ -13,9 +13,7 @@ function removeModal(modal: HTMLElement) {
 }
 
 export function closeModal(key: string) {
-  const modal = document.querySelector(
-    `[data-modal-root=${key}]`
-  ) as HTMLElement | null;
+  const modal = document.querySelector<HTMLElement>(`[data-modal-root=${key}]`);
 
   if (!modal) return;
 
@@ -64,21 +62,18 @@ export function openModal(key: string, trigger: HTMLElement | null = null) {
 
   const templateContent = template.content.cloneNode(true) as HTMLElement;
 
-  const root = templateContent.querySelector(
-    "[data-modal-root]"
-  ) as HTMLElement | null;
+  const root = templateContent.querySelector<HTMLElement>("[data-modal-root]");
 
   if (!root) return;
 
-  const autofocus = templateContent.querySelector(
+  const autofocus = templateContent.querySelector<HTMLElement>(
     "[autofocus]:not([disabled])"
-  ) as HTMLElement | null;
-  const focusGuard = templateContent.querySelector(
-    "[data-focus-guard]"
-  ) as HTMLElement | null;
-  const focusable = templateContent.querySelector(
+  );
+  const focusGuard =
+    templateContent.querySelector<HTMLElement>("[data-focus-guard]");
+  const focusable = templateContent.querySelector<HTMLElement>(
     'a, button:not([disabled]), input:not([disabled]), [tabindex]:not([disabled]):not([tabindex="-1"]), select:not([disabled]), textarea:not([disabled])'
-  ) as HTMLElement | null;
+  );
 
   root.style.animationDuration = _modalAnimationDuration + "ms";
 

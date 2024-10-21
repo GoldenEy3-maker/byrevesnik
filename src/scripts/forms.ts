@@ -68,22 +68,28 @@ export function handleSubmitForm(event: SubmitEvent) {
 
   const isValid = validateFormSubmit(event);
 
+  const successOverlay = document.querySelector<HTMLElement>(
+    `[data-form-success=${target.id}]`
+  );
+
+  const unknowInvalidResponse = target.getAttribute(
+    "data-unknown-invalid-response"
+  );
   const responseEl = target.querySelector<HTMLParagraphElement>(
     "[data-form-response]"
   );
 
   if (!isValid) return;
 
+  const formData = target.method !== "get" ? new FormData(target) : undefined;
+
   for (let i = 0; i < target.elements.length; i++) {
     (target.elements[i] as HTMLInputElement | HTMLButtonElement).disabled =
       true;
   }
 
-  const formData = new FormData(target);
-
   if (responseEl) {
     responseEl.textContent = "";
-    responseEl.classList.remove("invalid");
     responseEl.ariaHidden = "true";
   }
 
@@ -101,18 +107,31 @@ export function handleSubmitForm(event: SubmitEvent) {
             response.statusText
           );
           if (responseEl) {
-            responseEl.classList.add("invalid");
-            responseEl.textContent = "Что-то пошло не так!";
+            responseEl.textContent =
+              unknowInvalidResponse ?? "Что-то пошло не так!";
+            responseEl.ariaHidden = "false";
           }
           return;
         }
 
-        if (responseEl) responseEl.textContent = "Заявка отправлена успешно!";
+        if (successOverlay) {
+          successOverlay.ariaHidden = "false";
+          successOverlay.style.height = target.offsetHeight + "px";
+          target.ariaHidden = "true";
+
+          setTimeout(() => {
+            successOverlay.ariaHidden = "true";
+            target.ariaHidden = "false";
+          }, 5000);
+        } else if (responseEl)
+          responseEl.textContent = "Заявка отправлена успешно!";
+
+        target.reset();
       })
       .catch((error) => {
         if (responseEl) {
-          responseEl.classList.add("invalid");
           responseEl.textContent = error;
+          responseEl.ariaHidden = "false";
         }
         console.error(error);
       })
@@ -120,7 +139,6 @@ export function handleSubmitForm(event: SubmitEvent) {
         for (let i = 0; i < target.elements.length; i++) {
           target.elements[i].removeAttribute("disabled");
         }
-        if (responseEl) responseEl.ariaHidden = "false";
       });
   }, 2000);
 }
