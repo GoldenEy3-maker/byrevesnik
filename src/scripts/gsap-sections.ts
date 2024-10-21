@@ -167,7 +167,7 @@ export function initFirstGsapSection() {
       start: "top top",
       end: "bottom top",
       pin: true,
-      scrub: true,
+      scrub: 1.0,
     },
   });
 
@@ -239,7 +239,7 @@ export function initSecondGsapSection() {
           start: "top 30%",
           end: "bottom top",
           pin: true,
-          scrub: true,
+          scrub: 1.0,
         },
       });
 
