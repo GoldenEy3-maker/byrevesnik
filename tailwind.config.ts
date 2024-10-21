@@ -39,6 +39,28 @@ export default {
           DEFAULT: "#666666",
         },
       },
+      keyframes: {
+        burgerOpen: {
+          from: {
+            transform: "translate(-100%, 0)",
+          },
+          to: {
+            transform: "translate(0, 0)",
+          },
+        },
+        burgerClose: {
+          from: {
+            transform: "translate(0, 0)",
+          },
+          to: {
+            transform: "translate(-100%, 0)",
+          },
+        },
+      },
+      animation: {
+        burgerOpen: "burgerOpen 300ms ease forwards",
+        burgerClose: "burgerClose 300ms ease forwards",
+      },
     },
   },
   plugins: [

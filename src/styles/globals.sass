@@ -13,6 +13,12 @@
   html
     overscroll-behavior: none
 
+  body
+    @apply text-text
+    &.lock-scroll
+      overflow: hidden
+      padding-right: var(--scrollbar-width, 0)
+
 @layer utilities
   html.lenis, html.lenis body
     height: auto
