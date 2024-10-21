@@ -174,7 +174,6 @@ export function initFirstGsapSection() {
   initAnimation(getMatchedMedia()?.media ?? "DEFAULT");
 
   function initAnimation(mqKey: string) {
-    console.log(mqKey);
     tl.add([
       gsap.to("#hero-text", {
         yPercent: -50,

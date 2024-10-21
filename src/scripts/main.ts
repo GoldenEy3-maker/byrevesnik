@@ -7,6 +7,9 @@ import { initContactsMap } from "./contacts-map";
 import { initTelMask } from "./tel-mask";
 import { handleSubmitForm } from "./forms";
 
+// ScrollTrigger.normalizeScroll(true);
+// ScrollTrigger.config({ ignoreMobileResize: true });
+
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
