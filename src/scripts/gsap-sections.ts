@@ -1,19 +1,42 @@
 import { gsap } from "gsap";
 
 export function initFirstGsapSection() {
+  const mm = gsap.matchMedia();
+
   const BreakpointsMap = {
-    XL2: "(max-width: 1340px)",
-    XL: "(max-width: 1200px)",
-    MD2: "(max-width: 991px)",
-    MD: "(max-width: 768px)",
-    SM2: "(max-width: 640px)",
-    SM: "(max-width: 425px)",
+    XL6: "(min-width: 1440px)",
+    XL5: "(min-width: 1380px) and (max-width: 1440px)",
+    XL4: "(min-width: 1280px) and (max-width: 1380px)",
+    XL3: "(min-width: 1180px) and (max-width: 1280px)",
+    XL2: "(min-width: 1080px) and (max-width: 1180px)",
+    XL: "(min-width: 980px) and (max-width: 1080px)",
+    MD3: "(min-width: 880px) and (max-width: 980px)",
+    MD2: "(min-width: 780px) and (max-width: 880px)",
+    MD: "(min-width: 680px) and (max-width: 780px)",
   } as const;
 
   type BreakpointsMap = (typeof BreakpointsMap)[keyof typeof BreakpointsMap];
 
-  const mediaAnimationValuesMap = {
-    DEFAULT: {
+  const AnimationValuesMap: Record<
+    keyof typeof BreakpointsMap,
+    {
+      firstStep: {
+        heroFirstLayer: { yPercent: number };
+        heroSecondLayer: { yPercent: number };
+      };
+      secondStep: {
+        heroFirstLayer: {
+          height: string;
+          yPercent: number;
+        };
+        heroSecondLayer: {
+          height: string;
+          yPercent: number;
+        };
+      };
+    }
+  > = {
+    XL6: {
       firstStep: {
         heroFirstLayer: {
           yPercent: -60,
@@ -24,16 +47,16 @@ export function initFirstGsapSection() {
       },
       secondStep: {
         heroFirstLayer: {
-          yPercent: -80,
-          height: "+=30",
+          yPercent: -72,
+          height: "+=160",
         },
         heroSecondLayer: {
-          yPercent: -80,
-          height: "+=30",
+          yPercent: -72,
+          height: "+=160",
         },
       },
     },
-    [BreakpointsMap.XL2]: {
+    XL5: {
       firstStep: {
         heroFirstLayer: {
           yPercent: -60,
@@ -45,137 +68,186 @@ export function initFirstGsapSection() {
       secondStep: {
         heroFirstLayer: {
           yPercent: -75,
-          height: "+=30",
+          height: "+=100",
         },
         heroSecondLayer: {
           yPercent: -75,
-          height: "+=30",
+          height: "+=100",
         },
       },
     },
-    [BreakpointsMap.XL]: {
+    XL4: {
       firstStep: {
         heroFirstLayer: {
-          yPercent: -45,
+          yPercent: -60,
         },
         heroSecondLayer: {
-          yPercent: -45,
+          yPercent: -60,
         },
       },
       secondStep: {
         heroFirstLayer: {
-          yPercent: -65,
-          height: "+=30",
+          yPercent: -72,
+          height: "+=100",
         },
         heroSecondLayer: {
-          yPercent: -65,
-          height: "+=30",
+          yPercent: -72,
+          height: "+=100",
         },
       },
     },
-    [BreakpointsMap.MD2]: {
+    XL3: {
       firstStep: {
         heroFirstLayer: {
-          yPercent: -45,
+          yPercent: -60,
         },
         heroSecondLayer: {
-          yPercent: -45,
+          yPercent: -60,
         },
       },
       secondStep: {
         heroFirstLayer: {
-          yPercent: -55,
-          height: "+=30",
+          yPercent: -68,
+          height: "+=100",
         },
         heroSecondLayer: {
-          yPercent: -55,
-          height: "+=30",
+          yPercent: -68,
+          height: "+=100",
         },
       },
     },
-    [BreakpointsMap.MD]: {
+    XL2: {
       firstStep: {
         heroFirstLayer: {
-          yPercent: -40,
+          yPercent: -60,
         },
         heroSecondLayer: {
-          yPercent: -40,
+          yPercent: -60,
         },
       },
       secondStep: {
         heroFirstLayer: {
-          yPercent: -45,
-          height: "+=30",
+          yPercent: -64,
+          height: "+=110",
         },
         heroSecondLayer: {
-          yPercent: -45,
-          height: "+=30",
+          yPercent: -64,
+          height: "+=110",
         },
       },
     },
-    [BreakpointsMap.SM2]: {
+    XL: {
       firstStep: {
-        heroFirstLayer: {
-          yPercent: -40,
-        },
-        heroSecondLayer: {
-          yPercent: -40,
-        },
-      },
-      secondStep: {
-        heroFirstLayer: {
-          yPercent: -45,
-          height: "+=20",
-        },
-        heroSecondLayer: {
-          yPercent: -45,
-          height: "+=20",
-        },
-      },
-    },
-    [BreakpointsMap.SM]: {
-      firstStep: {
-        heroFirstLayer: {
-          yPercent: -40,
-        },
-        heroSecondLayer: {
-          yPercent: -40,
-        },
-      },
-      secondStep: {
         heroFirstLayer: {
           yPercent: -50,
-          height: "+=20",
         },
         heroSecondLayer: {
           yPercent: -50,
-          height: "+=20",
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -64,
+          height: "+=60",
+        },
+        heroSecondLayer: {
+          yPercent: -64,
+          height: "+=60",
+        },
+      },
+    },
+    MD3: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -50,
+        },
+        heroSecondLayer: {
+          yPercent: -50,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -62,
+          height: "+=40",
+        },
+        heroSecondLayer: {
+          yPercent: -62,
+          height: "+=40",
+        },
+      },
+    },
+    MD2: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -58,
+          height: "+=40",
+        },
+        heroSecondLayer: {
+          yPercent: -58,
+          height: "+=40",
+        },
+      },
+    },
+    MD: {
+      firstStep: {
+        heroFirstLayer: {
+          yPercent: -45,
+        },
+        heroSecondLayer: {
+          yPercent: -45,
+        },
+      },
+      secondStep: {
+        heroFirstLayer: {
+          yPercent: -52,
+          height: "+=50",
+        },
+        heroSecondLayer: {
+          yPercent: -52,
+          height: "+=50",
         },
       },
     },
   };
 
-  const mediaQueryList = Object.values(BreakpointsMap).map((query) =>
-    window.matchMedia(query)
-  );
+  function getActiveConditionKey(conditions: gsap.Conditions) {
+    let result: keyof typeof BreakpointsMap | undefined = undefined;
 
-  function getMatchedMedia() {
-    return mediaQueryList.filter((mq) => mq.matches).at(-1);
+    for (const [key, value] of Object.entries(conditions)) {
+      if (value === true) {
+        result = key as keyof typeof BreakpointsMap;
+        break;
+      }
+    }
+
+    return result;
   }
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#hero-container",
-      start: "top top",
-      end: "bottom top",
-      pin: true,
-      scrub: true,
-    },
-  });
+  mm.add(BreakpointsMap, (context) => {
+    if (!context.conditions) return;
 
-  initAnimation((getMatchedMedia()?.media as BreakpointsMap) ?? "DEFAULT");
+    const activeCondition = getActiveConditionKey(context.conditions);
 
-  function initAnimation(mqKey: BreakpointsMap) {
+    if (!activeCondition) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero-container",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        scrub: true,
+      },
+    });
+
     tl.add([
       gsap.to("#hero-text", {
         yPercent: -50,
@@ -183,11 +255,12 @@ export function initFirstGsapSection() {
       }),
       gsap.to("#hero-first-layer", {
         yPercent:
-          mediaAnimationValuesMap[mqKey].firstStep.heroFirstLayer.yPercent,
+          AnimationValuesMap[activeCondition].firstStep.heroFirstLayer.yPercent,
       }),
       gsap.to("#hero-second-layer", {
         yPercent:
-          mediaAnimationValuesMap[mqKey].firstStep.heroSecondLayer.yPercent,
+          AnimationValuesMap[activeCondition].firstStep.heroSecondLayer
+            .yPercent,
       }),
       gsap.to("#hero-address", {
         opacity: 1,
@@ -196,34 +269,40 @@ export function initFirstGsapSection() {
       gsap.to("#hero-title", {
         opacity: 0,
       }),
-      gsap.to("#hero-first-layer", {
-        maxWidth: "100%",
-        width: "100%",
-        height: mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.height,
-        yPercent:
-          mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
-      }),
-      gsap.to("#hero-second-layer", {
-        maxWidth: "100%",
-        width: "100%",
-        height:
-          mediaAnimationValuesMap[mqKey].secondStep.heroSecondLayer.height,
-        yPercent:
-          mediaAnimationValuesMap[mqKey].secondStep.heroFirstLayer.yPercent,
-      }),
+      gsap.fromTo(
+        "#hero-first-layer",
+        {
+          maxWidth: "670px",
+        },
+        {
+          maxWidth: "100%",
+          height:
+            AnimationValuesMap[activeCondition].secondStep.heroFirstLayer
+              .height,
+          yPercent:
+            AnimationValuesMap[activeCondition].secondStep.heroFirstLayer
+              .yPercent,
+        }
+      ),
+      gsap.fromTo(
+        "#hero-second-layer",
+        {
+          maxWidth: "670px",
+        },
+        {
+          maxWidth: "100%",
+          height:
+            AnimationValuesMap[activeCondition].secondStep.heroSecondLayer
+              .height,
+          yPercent:
+            AnimationValuesMap[activeCondition].secondStep.heroSecondLayer
+              .yPercent,
+        }
+      ),
       gsap.to("#hero-address", {
         opacity: 0,
       }),
     ]);
-
-    return tl;
-  }
-
-  mediaQueryList.forEach((mq) => {
-    mq.addEventListener("change", (changedMq) => {
-      initAnimation(changedMq.media as BreakpointsMap);
-      tl.invalidate();
-    });
   });
 }
 

@@ -10,6 +10,7 @@ export function initHistorySlider() {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    watchSlidesProgress: true,
     autoHeight: true,
     effect: "creative",
     creativeEffect: {
@@ -40,9 +41,8 @@ export function initHistorySlider() {
           const slideProgress = swiper.slides[i].progress;
           const innerOffset = swiper.width * interleaveOffset;
           const innerTranslate = slideProgress * innerOffset;
-          const inner = swiper.slides[i].querySelector(
-            ".slide-inner"
-          ) as HTMLElement;
+          const inner =
+            swiper.slides[i].querySelector<HTMLElement>(".slide-inner");
           if (inner)
             inner.style.transform =
               "translate3d(" + innerTranslate + "px, 0, 0)";
@@ -56,9 +56,8 @@ export function initHistorySlider() {
       setTransition: (swiper, speed) => {
         for (let i = 0; i < swiper.slides.length; i++) {
           swiper.slides[i].style.transition = speed + "ms";
-          const inner = swiper.slides[i].querySelector(
-            ".slide-inner"
-          ) as HTMLElement;
+          const inner =
+            swiper.slides[i].querySelector<HTMLElement>(".slide-inner");
           if (inner) inner.style.transition = speed + "ms";
         }
       },
