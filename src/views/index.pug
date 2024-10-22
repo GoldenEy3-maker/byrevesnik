@@ -6,9 +6,9 @@ block content
     section(class="container min-h-svh")
       div(class="relative ~pt-[3.75rem]/[7.125rem]" id="hero-container")
         h1(class="~text-[2.75rem]/[9.5rem] uppercase relative text-center z-10 text-text font-playfair ~mb-[2.5rem]/[5rem]" id="hero-title") Буревестник
-        blockquote(class="flex flex-col ~text-[1.125rem]/[1.75rem] max-w-[1200px] mx-auto font-playfair text-text-triary" id="hero-text")
-          i(class="~ml-[0rem]/[12rem] ~mb-2/4") Над седой равниной моря ветер тучи собирает.
-          i(class="~ml-[0rem]/[26.5rem]") Между тучами и морем гордо реет Буревестник…
+        blockquote(class="flex flex-col ~text-[1.125rem]/[1.75rem] max-w-[900px] mx-auto font-playfair text-text-triary" id="hero-text")
+          i(class="~ml-[0rem]/[1] ~mb-2/4") Над седой равниной моря ветер тучи собирает.
+          i(class="~ml-[0rem]/[16rem]") Между тучами и морем гордо реет Буревестник…
           div(class="flex items-center text-accent justify-end ~mt-6/12 ~text-sm/lg gap-3")
             span(class="~w-6/9 ~h-6/9")
               svg(width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full")
@@ -21,7 +21,7 @@ block content
                 path(d="M6.34474 23.3281C6.66358 22.5664 5.26189 21.9754 5.93446 21.0791C6.96076 21.6294 7.43601 23.4314 6.73817 24.0944C6.64553 24.1815 6.50596 24.2999 6.40249 24.2871C5.40988 24.1664 4.42087 24.005 3.69416 23.2538C3.55098 23.1063 3.51609 22.8613 3.43066 22.6616C3.63641 22.6373 3.8614 22.5467 4.04428 22.5989C4.81431 22.8184 5.5711 23.0796 6.34474 23.3292V23.3281Z" fill="currentColor")
                 path(d="M32.4734 6.47534C32.5131 6.70523 32.5492 6.9061 32.5841 7.10812C31.4747 7.3624 30.3534 7.62015 29.1045 7.90577C29.5593 7.59345 29.9058 7.25209 30.3257 7.08955C31.0067 6.82598 31.7358 6.67853 32.4734 6.47534Z" fill="currentColor")
             span Максим Горький
-        div(class="absolute left-1/2 -translate-y-1/2 top-full min-[81.25rem]:top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] opacity-0 min-[81.25rem]:~min-[82.5rem]/2xl:~left-0/12 min-[81.25rem]:translate-y-0 ~lg/2xl:~text-sm/base flex gap-x-2" id="hero-address")
+        div(class="absolute left-1/2 -translate-y-1/2 top-full min-[81.25rem]:top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] opacity-0 max-[81.25rem]:hidden min-[81.25rem]:~min-[82.5rem]/2xl:~left-0/12 min-[81.25rem]:translate-y-0 ~lg/2xl:~text-sm/base flex gap-x-2" id="hero-address")
           span(class="text-accent")
             svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
               path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
@@ -29,16 +29,25 @@ block content
             | 
             br
             | комфорт на&nbsp;ул. Анатолия, 24
-        div(class="z-20 absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] max-w-[670px] w-full ~h-[43.125rem]/[50rem] rounded-[80px] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
+        div(class="z-20 absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] max-w-[670px] w-full ~h-[37.5rem]/[50rem] rounded-[80px] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
           img(class="object-cover object-top w-full h-full" src="assets/img/hero-first-layer.png" alt="")
-        div(class='absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] left-1/2 rounded-[80px] max-w-[670px] w-full ~h-[43.125rem]/[50rem] overflow-hidden -translate-x-1/2' id="hero-second-layer")
+        div(class='absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] left-1/2 rounded-[80px] max-w-[670px] w-full ~h-[37.5rem]/[50rem] overflow-hidden -translate-x-1/2' id="hero-second-layer")
           img(class="object-cover object-top w-full h-full" src="assets/img/hero-second-layer.png" alt="")
-      div(class="~min-[26.5625rem]/sm:~pt-[27rem]/[32rem] sm:~pt-[32rem]/[20rem]")
+      div(class="flex items-center justify-between flex-wrap gap-x-4 gap-y-6 ~min-[26.5625rem]/sm:~pt-[27rem]/[32rem] sm:~pt-[32rem]/[20rem]")
         a(href="#" class="group rounded-xl inline-flex items-center h-[60px] justify-center gap-4 text-accent focus-visible:outline-none focus-visible:ring focus-visible:ring-accent") 
           span(class="border border-accent rounded-xl w-[3.75rem] h-[3.75rem] inline-flex items-center justify-center group-hover:text-white group-hover:bg-accent transition-all duration-300") 
             svg(width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg")
               path(d="M16 4C16 4 13.75 1 8.5 1C3.25 1 1 4 1 4V25C1 25 3.25 23.5 8.5 23.5C13.75 23.5 16 25 16 25M16 4V25M16 4C16 4 18.25 1 23.5 1C28.75 1 31 4 31 4V25C31 25 28.75 23.5 23.5 23.5C18.25 23.5 16 25 16 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round")
-          p Скачать буклет
+          p Скачать буклет   
+        div(class="~lg/2xl:~text-sm/base flex gap-x-2 min-[81.25rem]:hidden")
+          span(class="text-accent")
+            svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
+          p(class="font-light") Жилой комплекс класса
+            | 
+            br
+            | комфорт на&nbsp;ул. Анатолия, 24
+
     section(class='container' id="about")
       h2(class="~text-[1.875rem]/[4.5rem] text-center text-text font-playfair leading-tight") Изысканный комплекс 
         |

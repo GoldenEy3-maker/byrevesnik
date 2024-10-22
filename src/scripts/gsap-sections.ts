@@ -8,7 +8,9 @@ export function initFirstGsapSection() {
     MD: "(max-width: 768px)",
     SM2: "(max-width: 640px)",
     SM: "(max-width: 425px)",
-  };
+  } as const;
+
+  type BreakpointsMap = (typeof BreakpointsMap)[keyof typeof BreakpointsMap];
 
   const mediaAnimationValuesMap = {
     DEFAULT: {
@@ -167,13 +169,13 @@ export function initFirstGsapSection() {
       start: "top top",
       end: "bottom top",
       pin: true,
-      scrub: 1.0,
+      scrub: true,
     },
   });
 
-  initAnimation(getMatchedMedia()?.media ?? "DEFAULT");
+  initAnimation((getMatchedMedia()?.media as BreakpointsMap) ?? "DEFAULT");
 
-  function initAnimation(mqKey: string) {
+  function initAnimation(mqKey: BreakpointsMap) {
     tl.add([
       gsap.to("#hero-text", {
         yPercent: -50,
@@ -219,7 +221,7 @@ export function initFirstGsapSection() {
 
   mediaQueryList.forEach((mq) => {
     mq.addEventListener("change", (changedMq) => {
-      initAnimation(changedMq.media);
+      initAnimation(changedMq.media as BreakpointsMap);
       tl.invalidate();
     });
   });
@@ -239,7 +241,7 @@ export function initSecondGsapSection() {
           start: "top 30%",
           end: "bottom top",
           pin: true,
-          scrub: 1.0,
+          scrub: true,
         },
       });
 
