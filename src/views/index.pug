@@ -2,8 +2,8 @@ extends layouts/root.pug
 include ../components/button
 
 block content
-  main(class="~pb-[8.75rem]/[12.5rem] space-y-[7.5rem]")
-    section(class="container min-h-svh")
+  main(class="~pb-[8.75rem]/[12.5rem]")
+    section(class="container")
       div(class="relative ~pt-[3.75rem]/[7.125rem]" id="hero-container")
         h1(class="~text-[2.75rem]/[9.5rem] uppercase relative text-center z-10 text-text font-playfair ~mb-[2.5rem]/[5rem]" id="hero-title") Буревестник
         blockquote(class="flex flex-col ~text-[1.125rem]/[1.75rem] ~sm:~max-w-[26.25rem]/[56.25rem] mx-auto font-playfair text-text-triary" id="hero-text")
@@ -21,34 +21,29 @@ block content
                 path(d="M6.34474 23.3281C6.66358 22.5664 5.26189 21.9754 5.93446 21.0791C6.96076 21.6294 7.43601 23.4314 6.73817 24.0944C6.64553 24.1815 6.50596 24.2999 6.40249 24.2871C5.40988 24.1664 4.42087 24.005 3.69416 23.2538C3.55098 23.1063 3.51609 22.8613 3.43066 22.6616C3.63641 22.6373 3.8614 22.5467 4.04428 22.5989C4.81431 22.8184 5.5711 23.0796 6.34474 23.3292V23.3281Z" fill="currentColor")
                 path(d="M32.4734 6.47534C32.5131 6.70523 32.5492 6.9061 32.5841 7.10812C31.4747 7.3624 30.3534 7.62015 29.1045 7.90577C29.5593 7.59345 29.9058 7.25209 30.3257 7.08955C31.0067 6.82598 31.7358 6.67853 32.4734 6.47534Z" fill="currentColor")
             span Максим Горький
-        div(class="absolute left-1/2 -translate-y-1/2 top-full min-[81.25rem]:top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] opacity-0 max-[81.25rem]:hidden min-[81.25rem]:~min-[82.5rem]/2xl:~left-0/12 min-[81.25rem]:translate-y-0 ~lg/2xl:~text-sm/base flex gap-x-2" id="hero-address")
+        div(class="z-20 absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] max-w-[670px] w-full min-[42.5rem]:~min-[42.5rem]:~h-[37.5rem]/[50rem] ~rounded-[2.5rem]/[5rem] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
+          img(class="object-cover object-top w-full h-full" src="assets/img/hero-first-layer.png" alt="")
+        div(class='absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] left-1/2 ~rounded-[2.5rem]/[5rem] max-w-[670px] w-full min-[42.5rem]:~min-[42.5rem]:~h-[37.5rem]/[50rem] overflow-hidden -translate-x-1/2' id="hero-second-layer")
+          img(class="object-cover object-top w-full h-full" src="assets/img/hero-second-layer.png" alt="")
+      div(class="flex flex-col items-start justify-start max-[33.75rem]:ml-[calc(1/12*100%)] min-[33.75rem]:flex-row min-[33.75rem]:items-center min-[33.75rem]:justify-evenly gap-x-4 gap-y-6 ~min-[26.5625rem]/md:~pt-[18rem]/[37rem] min-[42.5rem]:~min-[42.5rem]:~pt-[26.5rem]/[28rem]")
+        div(class="~lg/2xl:~text-sm/base flex gap-x-2")
           span(class="text-accent")
             svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
               path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
           p(class="font-light") Жилой комплекс класса
             | 
             br
-            | комфорт на&nbsp;ул. Анатолия, 24
-        div(class="z-20 absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] max-w-[670px] w-full ~h-[37.5rem]/[50rem] ~rounded-[2.5rem]/[5rem] overflow-hidden left-1/2 -translate-x-1/2" id="hero-first-layer")
-          img(class="object-cover object-top w-full h-full" src="assets/img/hero-first-layer.png" alt="")
-        div(class='absolute top-[calc(100%+clamp(3rem,1.4155rem+6.7606vw,7.5rem))] left-1/2 ~rounded-[2.5rem]/[5rem] max-w-[670px] w-full ~h-[37.5rem]/[50rem] overflow-hidden -translate-x-1/2' id="hero-second-layer")
-          img(class="object-cover object-top w-full h-full" src="assets/img/hero-second-layer.png" alt="")
-      div(class="flex items-center justify-between flex-wrap gap-x-4 gap-y-6 ~min-[26.5625rem]/md:~pt-[43rem]/[45rem] min-[42.5rem]:~min-[42.5rem]:~pt-[26.5rem]/[28rem]")
-        a(href="#" class="group rounded-xl inline-flex items-center h-[60px] justify-center gap-4 text-accent focus-visible:outline-none focus-visible:ring focus-visible:ring-accent") 
-          span(class="border border-accent rounded-xl w-[3.75rem] h-[3.75rem] inline-flex items-center justify-center group-hover:text-white group-hover:bg-accent transition-all duration-300") 
+            | комфорт на&nbsp;ул. Анатолия, 52
+        a(href="#" class="group rounded-xl inline-flex items-center h-[60px] justify-center gap-4 focus-visible:outline-none focus-visible:ring focus-visible:ring-accent") 
+          span(class="rounded-xl w-[3.75rem] h-[3.75rem] inline-flex items-center justify-center bg-accent text-white transition-all duration-300") 
             svg(width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg")
               path(d="M16 4C16 4 13.75 1 8.5 1C3.25 1 1 4 1 4V25C1 25 3.25 23.5 8.5 23.5C13.75 23.5 16 25 16 25M16 4V25M16 4C16 4 18.25 1 23.5 1C28.75 1 31 4 31 4V25C31 25 28.75 23.5 23.5 23.5C18.25 23.5 16 25 16 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round")
-          p Скачать буклет   
-        div(class="~lg/2xl:~text-sm/base flex gap-x-2 min-[81.25rem]:hidden")
-          span(class="text-accent")
-            svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.067 4.5 8.5 6.067 8.5 8C8.5 9.933 10.067 11.5 12 11.5C13.933 11.5 15.5 9.933 15.5 8C15.5 6.067 13.933 4.5 12 4.5ZM12.5 12.4725C14.75 12.2238 16.5 10.3163 16.5 8C16.5 5.51472 14.4853 3.5 12 3.5C9.51472 3.5 7.5 5.51472 7.5 8C7.5 10.3163 9.25002 12.2238 11.5 12.4725V20H12.5V12.4725Z" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="bevel")
-          p(class="font-light") Жилой комплекс класса
-            | 
-            br
-            | комфорт на&nbsp;ул. Анатолия, 24
-
-    section(class='container' id="about")
+          div
+            p(class="text-accent group-hover:text-text transition-all duration-300") Скачать буклет
+            p(class="text-text-triary space-x-2 text-sm")
+              span pdf 
+              span 12 мб
+    section(class='mt-[7.5rem]' id="about")
       h2(class="~text-[1.875rem]/[4.5rem] text-center text-text font-playfair leading-tight") Изысканный комплекс 
         |
         br 
@@ -57,8 +52,8 @@ block content
       blockquote(class="text-center font-playfair text-text-triary ~text-[0.875rem]/[1.25rem] leading-normal max-w-[670px] mx-auto") 
         i 8-ми этажный дом клубного типа, в&nbsp;стиле неоклассики, где высота потолков от&nbsp;2,9&nbsp;метра. Во&nbsp;дворе нет машин, он&nbsp;закрыт для посторонних. Собственный зелёный сквер, детские и&nbsp;спортивные площадки, вело-дорожка с&nbsp;элементами памп-трека
       div(class="overflow-hidden relative ~mt-[3.75rem]/[6.25rem]" id="queue-container")
-        div(id="queue-list" class="flex flex-col md:flex-row gap-y-[3.375rem] gap-x-[7.77%]")
-          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(7/12*100%)] shrink-0 min-[62rem]:items-end")
+        div(id="queue-list" class="flex flex-col md:flex-row max-[120rem]:~pl-[1rem]/[3rem] gap-y-[3.375rem] gap-x-[7.77%] min-[120rem]:gap-x-[8rem] min-[120rem]:justify-center")
+          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(7/12*100%)] shrink-0 min-[62rem]:items-end min-[120rem]:max-w-[60rem]")
             span(class="inline-block ~h-[6.25rem]/[29.1875rem] ~w-[6rem]/[14rem] ~mr-[2.125rem]/0 shrink-0 text-accent")
               svg(width="100%" height="100%" viewBox="0 0 169 467" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(opacity="0.2" d="M168.754 0.354017V13.5361C153.814 13.9755 142.39 15.7331 134.481 18.8089C127.011 21.4454 121.958 26.7182 119.321 34.6274C116.685 42.0973 115.367 53.9611 115.367 70.2191V397.135C115.367 412.953 116.685 424.817 119.321 432.727C121.958 440.636 127.011 445.909 134.481 448.545C142.39 451.181 153.814 452.939 168.754 453.818V467C158.648 466.121 145.905 465.682 130.526 465.682C115.586 465.242 100.427 465.023 85.0478 465.023C67.9111 465.023 51.8728 465.242 36.9331 465.682C21.9934 465.682 9.90985 466.121 0.682391 467V453.818C15.6221 452.939 26.8269 451.181 34.2967 448.545C42.206 445.909 47.4788 440.636 50.1152 432.727C52.7516 424.817 54.0699 412.953 54.0699 397.135V70.2191C54.0699 53.9611 52.7516 42.0973 50.1152 34.6274C47.4788 26.7182 42.206 21.4454 34.2967 18.8089C26.8269 15.7331 15.6221 13.9755 0.682391 13.5361V0.354017C9.90985 0.793414 21.9934 1.23281 36.9331 1.67221C51.8728 2.11161 67.9111 2.3313 85.0478 2.3313C100.427 2.3313 115.586 2.11161 130.526 1.67221C145.905 1.23281 158.648 0.793414 168.754 0.354017Z" fill="currentColor")
@@ -77,7 +72,7 @@ block content
                 div
                   h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 35 кладовых
                   p(class="~text-xs/sm text-text font-light") На подземном этаже
-          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(8/12*100%)] shrink-0 min-[62rem]:items-end")
+          div(class="flex w-full md:max-w-[67%] min-[62rem]:max-w-[calc(8/12*100%)] shrink-0 min-[62rem]:items-end min-[120rem]:max-w-[60rem]")
             span(class="inline-block ~h-[6.25rem]/[29.1875rem] ~w-[6rem]/[27.9375rem] shrink-0 text-accent ~mr-[2.125rem]/0")
               svg(width="100%" height="100%" viewBox="0 0 393 467" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(opacity="0.2" d="M168.754 0.354017V13.5361C153.814 13.9755 142.39 15.7331 134.481 18.8089C127.011 21.4454 121.958 26.7182 119.321 34.6274C116.685 42.0973 115.367 53.9611 115.367 70.2191V397.135C115.367 412.953 116.685 424.817 119.321 432.727C121.958 440.636 127.011 445.909 134.481 448.545C142.39 451.181 153.814 452.939 168.754 453.818V467C158.648 466.121 145.905 465.682 130.526 465.682C115.586 465.242 100.427 465.023 85.0478 465.023C67.9111 465.023 51.8728 465.242 36.9331 465.682C21.9934 465.682 9.90985 466.121 0.682391 467V453.818C15.6221 452.939 26.8269 451.181 34.2967 448.545C42.206 445.909 47.4788 440.636 50.1152 432.727C52.7516 424.817 54.0699 412.953 54.0699 397.135V70.2191C54.0699 53.9611 52.7516 42.0973 50.1152 34.6274C47.4788 26.7182 42.206 21.4454 34.2967 18.8089C26.8269 15.7331 15.6221 13.9755 0.682391 13.5361V0.354017C9.90985 0.793414 21.9934 1.23281 36.9331 1.67221C51.8728 2.11161 67.9111 2.3313 85.0478 2.3313C100.427 2.3313 115.586 2.11161 130.526 1.67221C145.905 1.23281 158.648 0.793414 168.754 0.354017ZM392.103 0.354017V13.5361C377.163 13.9755 365.739 15.7331 357.829 18.8089C350.36 21.4454 345.307 26.7182 342.67 34.6274C340.034 42.0973 338.715 53.9611 338.715 70.2191V397.135C338.715 412.953 340.034 424.817 342.67 432.727C345.307 440.636 350.36 445.909 357.829 448.545C365.739 451.181 377.163 452.939 392.103 453.818V467C381.997 466.121 369.254 465.682 353.875 465.682C338.935 465.242 323.776 465.023 308.397 465.023C291.26 465.023 275.222 465.242 260.282 465.682C245.342 465.682 233.259 466.121 224.031 467V453.818C238.971 452.939 250.176 451.181 257.646 448.545C265.555 445.909 270.828 440.636 273.464 432.727C276.101 424.817 277.419 412.953 277.419 397.135V70.2191C277.419 53.9611 276.101 42.0973 273.464 34.6274C270.828 26.7182 265.555 21.4454 257.646 18.8089C250.176 15.7331 238.971 13.9755 224.031 13.5361V0.354017C233.259 0.793414 245.342 1.23281 260.282 1.67221C275.222 2.11161 291.26 2.3313 308.397 2.3313C323.776 2.3313 338.935 2.11161 353.875 1.67221C369.254 1.23281 381.997 0.793414 392.103 0.354017Z" fill="#B79F7F")
@@ -85,18 +80,18 @@ block content
               span(class="text-text-triary font-light ~mb-[1.25rem]/[2.25rem] inline-block") 1 очередь
               div(class="grid grid-cols-1 min-[62rem]:grid-cols-2 gap-x-14 ~gap-y-3/8")  
                 div
-                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 48 квартир
-                  p(class="~text-xs/sm text-text font-light") 23 уникальных планировки
+                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 28 квартир
+                  p(class="~text-xs/sm text-text font-light") 12 уникальных планировок
                 div
-                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") до 180 м²
-                  p(class="~text-xs/sm text-text font-light") Площадь от 40м² до 180м²
+                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") до 100 м²
+                  p(class="~text-xs/sm text-text font-light") Площадь от 40м² до 100м²
                 div
-                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 34 места
+                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 17 мест
                   p(class="~text-xs/sm text-text font-light") Машино-места на подземном паркинге
                 div
-                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 35 кладовых
+                  h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 19 кладовых
                   p(class="~text-xs/sm text-text font-light") На подземном этаже
-    section(class="container" id="history") 
+    section(class="container mt-[11.25rem]" id="history") 
       h2(class="~text-[1.875rem]/[4.5rem] text-center text-text font-playfair leading-tight") История с которой 
         | 
         br
@@ -105,7 +100,7 @@ block content
       blockquote(class="text-center font-playfair text-text-triary ~text-[0.875rem]/[1.25rem] leading-normal max-w-[720px] mx-auto") 
         i От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула
       div(class="flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-end ~mt-[3rem]/[6.25rem]") 
-        div(class="swiper order-2 lg:order-1 h-full overflow-hidden ~text-base/[1.25rem] font-light w-full lg:w-[calc(4/12*100%)] m-0 min-[81.25rem]:ml-[calc(1/12*100%)]" data-history-swiper-text="")
+        div(class="swiper order-2 lg:order-1 h-full overflow-hidden ~text-base/[1.25rem] font-light w-full lg:w-[calc(5/12*100%)] min-[81.25rem]:w-[calc(4/12*100%)] m-0 min-[81.25rem]:ml-[calc(1/12*100%)]" data-history-swiper-text="")
           div(class="swiper-wrapper")
             div(class="swiper-slide transition-all duration-[600ms]")
               div(class="")
@@ -122,14 +117,14 @@ block content
             div(class="swiper-slide transition-all duration-[600ms]")
               div(class="")
                 p История этого места насыщена событиями и&nbsp;людьми, заслуживающими памяти. От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула.
-          div(class="flex items-center pt-10")
+          div(class="flex items-center gap-4 pt-6 lg:pt-[18rem]")
             button(type="button" class="swiper-button-prev disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M40 24H8M8 24L9.19566 23.5018C16.0815 20.6327 21.4507 15.0105 24 8M8 24C15.0105 26.5493 20.6327 31.9185 23.5018 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
             button(type="button" class="swiper-button-next disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M8 24H40M40 24L38.8043 23.5018C31.9185 20.6327 26.5493 15.0105 24 8M40 24C32.9895 26.5493 27.3673 31.9185 24.4982 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
-        div(class="swiper order-1 lg:order-2 w-full lg:w-[calc(7/12*100%)] xl:w-[calc(5.5/12*100%)] ~h-[20rem]/[30rem] mr-0" data-history-swiper-img="")
+        div(class="swiper order-1 lg:order-2 w-full lg:w-[calc(6/12*100%)] xl:w-[calc(5.5/12*100%)] ~h-[20rem]/[30rem] mr-0" data-history-swiper-img="")
           div(class="swiper-wrapper")
             div(class="swiper-slide relative overflow-hidden")
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-1.webp')] bg-cover bg-center bg-no-repeat")
@@ -141,7 +136,7 @@ block content
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-4.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-5.webp')] bg-cover bg-center bg-no-repeat")
-    section(class="container" id="contacts")
+    section(class="container mt-[11.25rem]" id="contacts")
       h2(class="~text-[1.875rem]/[4.5rem] text-left text-text font-playfair leading-tight") Получить консультацию
       div(class="flex flex-col min-[62rem]:flex-row ~mt-9/20 m-0 min-[81.25rem]:ml-[calc(1/12*100%)]")
         div(class="min-[62rem]:pt-[3.75rem] ~pb-[3.75rem]/11 w-full md:w-[calc(6/12*100%)] min-[62rem]:w-[calc(4/12*100%)] flex flex-col")
@@ -151,12 +146,12 @@ block content
           form(class="aria-hidden:hidden" method="post" action="test.php" id="contacts-form" class="~space-y-8/10" novalidate="" data-unknown-invalid-response="Произошла ошибка на стороне сервера, попробуйте ещё раз")
             div(data-form-control="")
               div(class="relative border-b border-border/60")
-                input(type="text" class="peer w-full h-12 py-3 text-2xl focus:outline-none text-text font-light bg-transparent disabled:opacity-50 placeholder:opacity-0" id="name" name="name" placeholder="1" pattern="[А-ЯЁа-яё ]{2,}" data-pattern-text="Только кириллица, минимум 2 символа" required="")
+                input(type="text" class="peer w-full h-12 py-3 text-2xl focus:outline-none text-text font-light bg-transparent disabled:opacity-50 placeholder:opacity-0" id="name" name="name" placeholder="1" pattern="[А-ЯЁа-яё ]{2,}" data-pattern-text="Введите имя минимум из 2 букв кириллицей" required="")
                 label(for="name" class='font-light pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 peer-focus:-top-1 peer-focus:text-sm peer-focus:text-text/60 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-text/60 peer-aria-[invalid=true]:text-destructive peer-focus:peer-aria-[invalid=true]:text-destructive/60 peer-[:not(:placeholder-shown)]:peer-aria-[invalid=true]:text-destructive/60 transition-all duration-300') Ваше имя
               p(class="text-destructive font-light text-sm mt-3" data-form-control-message="")
             div(data-form-control="")
               div(class="relative border-b border-border/60")
-                input(type="tel" class="peer w-full h-12 py-3 text-2xl focus:outline-none text-text font-light bg-transparent disabled:opacity-50 placeholder:opacity-0" id="tel" name="tel" placeholder="2" pattern="\\+7\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}" data-pattern-text="Неверный формат" required="")
+                input(type="tel" class="peer w-full h-12 py-3 text-2xl focus:outline-none text-text font-light bg-transparent disabled:opacity-50 placeholder:opacity-0" id="tel" name="tel" placeholder="2" pattern="\\+7\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}" data-pattern-text="Перепроверьте правильность номера телефона, мы позвоним на него" required="")
                 label(for="name" class='font-light pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 peer-focus:-top-1 peer-focus:text-sm peer-focus:text-text/60 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-text/60 peer-aria-[invalid=true]:text-destructive peer-focus:peer-aria-[invalid=true]:text-destructive/60 peer-[:not(:placeholder-shown)]:peer-aria-[invalid=true]:text-destructive/60 transition-all duration-300') Телефон
               p(class="text-destructive font-light text-sm mt-3" data-form-control-message="")
             div
@@ -169,5 +164,5 @@ block content
               br
               | с нашей 
               a(href="#" class="text-accent focus:outline-none focus-visible:ring focus-visible:ring-accent rounded-xl") политикой обработки данных
-        div(class="w-full min-[62rem]:w-[calc(6/12*100%)] xl:w-[calc(5/12*100%)] ~h-[22.5rem]/[37.5rem] ml-auto" id='contacts-map')
+        div(class="w-full min-[62rem]:w-[calc(5/12*100%)] xl:w-[calc(4/12*100%)] ~h-[22.5rem]/[42.5rem] ml-auto" id='contacts-map')
 

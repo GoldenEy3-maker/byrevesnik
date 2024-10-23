@@ -8,7 +8,7 @@ export async function initContactsMap() {
     await ymaps3.ready;
 
     const LOCATION: YMapLocationRequest = {
-      center: [83.79308867918458, 53.33885042164052],
+      center: [83.79335, 53.339048],
       zoom: 16,
     };
 
@@ -43,7 +43,7 @@ export async function initContactsMap() {
 
     const marker = new YMapMarker(
       {
-        coordinates: [83.79308867918458, 53.33885042164052],
+        coordinates: [83.79335, 53.339048],
       },
       imgMarker
     );

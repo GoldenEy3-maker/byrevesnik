@@ -262,9 +262,6 @@ export function initFirstGsapSection() {
           AnimationValuesMap[activeCondition].firstStep.heroSecondLayer
             .yPercent,
       }),
-      gsap.to("#hero-address", {
-        opacity: 1,
-      }),
     ]).add([
       gsap.to("#hero-title", {
         opacity: 0,
@@ -299,45 +296,35 @@ export function initFirstGsapSection() {
               .yPercent,
         }
       ),
-      gsap.to("#hero-address", {
-        opacity: 0,
-      }),
     ]);
   });
 }
 
 export function initSecondGsapSection() {
-  let tl: GSAPTimeline;
-  const workingAnimationMq = window.matchMedia("(min-width: 768px)");
+  const mm = gsap.matchMedia();
 
-  const list = document.querySelector("#queue-list");
+  const list = document.querySelector<HTMLElement>("#queue-list");
 
-  function initAnimation(mq: MediaQueryList) {
-    if (mq.matches) {
-      tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#queue-container",
-          start: "top 30%",
-          end: "bottom top",
-          pin: true,
-          scrub: true,
-        },
-      });
+  if (!list) return;
 
-      tl.add([
-        gsap.to("#queue-list", {
-          x: () => -(list?.children.item(0) as HTMLElement).offsetWidth / 1.5,
-          duration: 2,
-        }),
-      ]);
-    } else {
-      if (tl) tl.kill();
-    }
-  }
+  mm.add("(min-width: 768px) and (max-width: 1900px)", (context) => {
+    if (!context.conditions || !context.conditions.matches) return;
 
-  initAnimation(workingAnimationMq);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#queue-container",
+        start: "top 30%",
+        end: "bottom top",
+        pin: true,
+        scrub: true,
+      },
+    });
 
-  workingAnimationMq.addEventListener("change", function () {
-    initAnimation(this);
+    tl.add([
+      gsap.to("#queue-list", {
+        x: () => -(list?.children.item(0) as HTMLElement).offsetWidth / 1.8,
+        duration: 2,
+      }),
+    ]);
   });
 }
