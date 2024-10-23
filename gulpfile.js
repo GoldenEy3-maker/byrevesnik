@@ -67,8 +67,8 @@ const paths = {
     dest: "./dist/assets/fonts/",
   },
   assets: {
-    src: "./src/assets/**/*",
-    watch: "./src/assets/**/*",
+    src: "./src/assets/*",
+    watch: "./src/assets/*",
     dest: "./dist/assets/",
   },
 };
@@ -91,6 +91,7 @@ function watch() {
   gulp.watch(paths.webp.watch, webp);
   gulp.watch(paths.images.watch, images);
   gulp.watch(paths.fonts.watch, fonts);
+  gulp.watch(paths.assets.watch, assets);
 }
 
 function views() {
@@ -216,8 +217,19 @@ function images() {
   );
 }
 
+function assets() {
+  return gulp
+    .src(paths.assets.src, { encoding: false, removeBOM: false })
+    .pipe(newer(paths.assets.dest))
+    .pipe(gulp.dest(paths.assets.dest))
+    .pipe(browserSync.stream());
+}
+
 gulp.task("default", watch);
 gulp.task(
   "build",
-  gulp.series(clean, gulp.parallel(views, scripts, styles, webp, images, fonts))
+  gulp.series(
+    clean,
+    gulp.parallel(views, scripts, styles, webp, images, fonts, assets)
+  )
 );
