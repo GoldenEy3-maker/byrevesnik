@@ -1,6 +1,6 @@
-@import "fonts"
-@import "utils"
-@import "libs"
+@use "fonts"
+@use "utils" as utils
+@use "libs"
 
 @tailwind base
 @tailwind components
@@ -36,11 +36,8 @@
     pointer-events: none
 
   .container
-    max-width: 1900px
+    max-width: 1440px
     width: 100%
-    // padding-inline: calc-clamp(1rem, 3rem, 375, 1440)
-    // padding-inline: 3.333333%
-    // padding-inline:  max(min(3.33333%, 3rem), 1rem)
     margin-inline: auto
     @apply ~px-[1rem]/[3rem]
 

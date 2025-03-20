@@ -91,7 +91,21 @@ block content
                 div
                   h3(class="~text-[1.375rem]/[2rem] mb-2 text-accent font-playfair") 19 кладовых
                   p(class="~text-xs/sm text-text font-light") На подземном этаже
-    section(class="container mt-[11.25rem]" id="history") 
+    section(class="container mt-[12rem]" id="neighbours") 
+      h2(class="~text-[1.875rem]/[4.5rem] text-text font-playfair leading-tight") Соседское пространство
+      div(class="flex flex-col gap-y-6 lg:flex-row ~mt-12/20")
+        div(class="aspect-[4/3] lg:mr-[calc(0.5/12*100%)]")
+          img(src="assets/img/neighbours-main.webp", alt="")
+        div(class="lg:w-[calc(4.5/12*100%)]")
+          div(class="space-y-4 leading-[1.4]")
+            p Особая жизнь кипит под домом. Здесь секретный подземный мир для тех, кто живет в&nbsp;доме. Мы&nbsp;назвали его &laquo;Бункер&raquo;. Любителей спорта и&nbsp;активного время провождения ждут бильярдный и&nbsp;спортивный залы, а&nbsp;их&nbsp;детей&nbsp;&mdash; детское и&nbsp;подростковое пространство с&nbsp;набором игр и&nbsp;тематических развлечений. Особое место мы&nbsp;отвели персональным кладовым комнатам для хранения самого ценного, чему не&nbsp;нашлось место дома. 
+            p Общее пространство для хранения сезонных транспортных средств и&nbsp;инвентаря, не&nbsp;вошедшего в&nbsp;колясочные во&nbsp;входной группе.
+          div(class='flex gap-6 ~mt-[2.125rem]/[3.125rem]')
+            div(class="aspect-[2/3]")
+              img(src="assets/img/neighbours-1.webp", alt="")
+            div(class="aspect-[2/3] ~mt-12/20")
+              img(src="assets/img/neighbours-2.webp", alt="")
+    section(class="container mt-[8.75rem]" id="history") 
       h2(class="~text-[1.875rem]/[4.5rem] text-center text-text font-playfair leading-tight") История с которой 
         | 
         br
@@ -99,7 +113,7 @@ block content
       hr(class="bg-accent h-0.5 w-[112px] ~my-6/12 mx-auto")
       blockquote(class="text-center font-playfair text-text-triary ~text-[0.875rem]/[1.25rem] leading-normal max-w-[720px] mx-auto") 
         i От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула
-      div(class="flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-end ~mt-[3rem]/[6.25rem]") 
+      div(class="flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-end ~mt-12/20") 
         div(class="swiper order-2 lg:order-1 h-full overflow-hidden ~text-base/[1.25rem] font-light w-full lg:w-[calc(5/12*100%)] min-[81.25rem]:w-[calc(4/12*100%)] m-0 min-[81.25rem]:ml-[calc(1/12*100%)]" data-history-swiper-text="")
           div(class="swiper-wrapper")
             div(class="swiper-slide pointer-events-none [&.swiper-slide-active]:pointer-events-auto transition-all duration-[600ms]")
@@ -112,14 +126,14 @@ block content
               p В&nbsp;начале&nbsp;XX века район Хлебной площади был центром мелкого бизнеса. Здесь находились лавки, мастерские, а&nbsp;также три усадьбы на&nbsp;месте нынешних домов по&nbsp;ул. Анатолия. Особенно выделялась усадьба семьи Астраханцевых&nbsp;&mdash; старообрядцев, достигших успеха в&nbsp;торговле.
             div(class="swiper-slide pointer-events-none [&.swiper-slide-active]:pointer-events-auto transition-all duration-[600ms]")
               p История этого места насыщена событиями и&nbsp;людьми, заслуживающими памяти. От&nbsp;соляных складов и&nbsp;торговых площадей до&nbsp;домов, построенных японскими военнопленными&nbsp;&mdash; каждое из&nbsp;этих событий оставило свой след, создавая уникальный облик этого района Барнаула.
-          div(class="flex items-center gap-4 pt-6 lg:pt-[18rem]")
+          div(class="flex items-center gap-4 pt-6 lg:pt-20")
             button(type="button" class="swiper-button-prev disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M40 24H8M8 24L9.19566 23.5018C16.0815 20.6327 21.4507 15.0105 24 8M8 24C15.0105 26.5493 20.6327 31.9185 23.5018 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
             button(type="button" class="swiper-button-next disabled:opacity-50")
               svg(width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg")
                 path(d="M8 24H40M40 24L38.8043 23.5018C31.9185 20.6327 26.5493 15.0105 24 8M40 24C32.9895 26.5493 27.3673 31.9185 24.4982 38.8043L24 40" stroke="#B79F7F" stroke-width="2" stroke-linejoin="bevel")
-        div(class="swiper order-1 lg:order-2 w-full lg:w-[calc(6/12*100%)] xl:w-[calc(5.5/12*100%)] ~h-[20rem]/[30rem] mr-0" data-history-swiper-img="")
+        div(class="swiper order-1 lg:order-2 w-full lg:w-[calc(6/12*100%)] xl:w-[calc(5.5/12*100%)] aspect-[77/40] mr-0" data-history-swiper-img="")
           div(class="swiper-wrapper")
             div(class="swiper-slide relative overflow-hidden")
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-1.webp')] bg-cover bg-center bg-no-repeat")
@@ -131,7 +145,7 @@ block content
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-4.webp')] bg-cover bg-center bg-no-repeat")
             div(class="swiper-slide relative overflow-hidden")
               div(class="slide-inner absolute inset-0 bg-[url('assets/img/history-5.webp')] bg-cover bg-center bg-no-repeat")
-    section(class="container mt-[11.25rem]" id="contacts")
+    section(class="container mt-[8.75rem]" id="contacts")
       h2(class="~text-[1.875rem]/[4.5rem] text-left text-text font-playfair leading-tight") Получить консультацию
       div(class="flex flex-col min-[62rem]:flex-row ~mt-9/20 m-0 min-[81.25rem]:ml-[calc(1/12*100%)]")
         div(class="min-[62rem]:pt-[3.75rem] ~pb-[3.75rem]/11 w-full md:w-[calc(6/12*100%)] min-[62rem]:w-[calc(4/12*100%)] flex flex-col")
