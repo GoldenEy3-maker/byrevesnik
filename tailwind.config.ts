@@ -15,7 +15,10 @@ export default {
     extract,
   },
   theme: {
-    screens,
+    screens: {
+      ...screens,
+      md2: "62rem",
+    },
     fontSize,
     extend: {
       fontFamily: {
