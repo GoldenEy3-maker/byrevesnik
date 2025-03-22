@@ -7,28 +7,12 @@ import { initTelMask } from "./tel-mask";
 import { handleSubmitForm } from "./forms";
 import { openModal } from "./modals";
 import { lenis } from "./lenis";
+import { eventBus } from "./events";
+import { FeaturesTabsView } from "./features-tabs";
 
 gsap.registerPlugin(ScrollTrigger);
 
-if (window.location.hash) {
-  lenis.scrollTo(window.location.hash);
-}
-
-const navLinks = document.querySelectorAll("[data-nav-link]");
-
-if (navLinks.length)
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const openedBurger = document.querySelector("[data-modal-root=burger]");
-      if (openedBurger && link.getAttribute("data-modal-close")) return;
-
-      event.preventDefault();
-      const url = new URL((link as HTMLAnchorElement).href);
-      lenis.scrollTo(url.hash, {
-        offset: -50,
-      });
-    });
-  });
+if (window.location.hash) lenis.scrollTo(window.location.hash);
 
 initHistorySlider();
 initFirstGsapSection();
@@ -36,13 +20,37 @@ initSecondGsapSection();
 initTelMask();
 initContactsMap();
 
+new FeaturesTabsView();
+
 document.addEventListener("click", (event) => {
-  const modalTrigger = (event.target as HTMLElement).closest(
-    "[data-modal-trigger]"
+  const target = event.target as HTMLElement;
+
+  const modalTrigger = target.closest(
+    "[data-modal-trigger]",
   ) as HTMLElement | null;
+  const navLink = target.closest("[data-nav-link]") as HTMLAnchorElement | null;
+  const featuresTabTrigger = target.closest(
+    "[data-features-tabs-trigger]",
+  ) as HTMLButtonElement | null;
 
   if (modalTrigger)
     openModal(modalTrigger.getAttribute("data-modal-trigger")!, modalTrigger);
+
+  if (navLink) {
+    event.preventDefault();
+    const url = new URL(navLink.href);
+    lenis.scrollTo(url.hash, {
+      offset: -50,
+    });
+  }
+
+  if (featuresTabTrigger)
+    eventBus.emit(
+      "features-tabs:changed",
+      parseInt(
+        featuresTabTrigger.getAttribute("data-features-tabs-trigger") ?? "",
+      ),
+    );
 });
 
 document.addEventListener("submit", handleSubmitForm);

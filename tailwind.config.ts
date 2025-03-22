@@ -34,6 +34,7 @@ export default {
         },
         accent: {
           DEFAULT: "#B79F7F",
+          oncolor: "#ECE4DA",
         },
         destructive: {
           DEFAULT: "#A55205",

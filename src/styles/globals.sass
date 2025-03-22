@@ -6,9 +6,6 @@
 @tailwind components
 @tailwind utilities
 
-:root
-  font-size: 16px
-
 @layer base
   html
     overscroll-behavior: none
@@ -43,3 +40,14 @@
     width: 100%
     margin-inline: auto
     @apply ~px-[1rem]/[3rem]
+
+  .grid-stack
+    display: grid
+    grid-template-areas: 'stack'
+
+    &>*,
+    &::before,
+    &::after
+      grid-area: stack
+      height: fit-content
+      z-index: 2

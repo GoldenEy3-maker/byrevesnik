@@ -307,7 +307,7 @@ export function initSecondGsapSection() {
 
   if (!list) return;
 
-  mm.add("(min-width: 768px) and (max-width: 1900px)", (context) => {
+  mm.add("(min-width: 768px) and (max-width: 2000px)", (context) => {
     if (!context.conditions || !context.conditions.matches) return;
 
     const tl = gsap.timeline({
