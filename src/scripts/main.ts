@@ -11,6 +11,7 @@ import { eventBus } from "./events";
 import { FeaturesTabsView } from "./features-tabs";
 import { ImageParallax } from "./parallax";
 import { ViewAnimation } from "./view-animation";
+import { BenefitsSlider } from "./benefits-slider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +26,7 @@ initContactsMap();
 new FeaturesTabsView();
 new ImageParallax();
 new ViewAnimation();
+new BenefitsSlider();
 
 document.addEventListener("click", (event) => {
   const target = event.target as HTMLElement;

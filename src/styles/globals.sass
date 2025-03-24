@@ -7,6 +7,9 @@
 @tailwind utilities
 
 @layer base
+  :root
+    --container-padding: clamp(1rem, calc(-0.429rem + 3.571vw), 3rem) /* min: 16px, max: 48px */
+
   html
     overscroll-behavior: none
 
@@ -39,7 +42,7 @@
     max-width: 1440px
     width: 100%
     margin-inline: auto
-    @apply ~px-[1rem]/[3rem]
+    padding-inline: var(--container-padding)
 
   .grid-stack
     display: grid
@@ -60,7 +63,6 @@
       position: relative
       display: inline-flex
       overflow: hidden
-      word-break: break-all
       &-inner
         position: relative
         display: block
