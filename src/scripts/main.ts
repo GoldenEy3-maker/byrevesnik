@@ -9,6 +9,8 @@ import { openModal } from "./modals";
 import { lenis } from "./lenis";
 import { eventBus } from "./events";
 import { FeaturesTabsView } from "./features-tabs";
+import { ImageParallax } from "./parallax";
+import { ViewAnimation } from "./view-animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +23,8 @@ initTelMask();
 initContactsMap();
 
 new FeaturesTabsView();
+new ImageParallax();
+new ViewAnimation();
 
 document.addEventListener("click", (event) => {
   const target = event.target as HTMLElement;

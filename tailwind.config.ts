@@ -17,6 +17,7 @@ export default {
   theme: {
     screens: {
       ...screens,
+      sm2: "32rem",
       md2: "62rem",
     },
     fontSize,
