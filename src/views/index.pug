@@ -3,9 +3,9 @@ include ../components/button
 
 block content
   main(class="~pb-[8.75rem]/[12.5rem]")
-    section(class="container")
+    section(class="container !max-w-none")
       #hero-container(class="relative ~pt-[3.75rem]/[7.125rem]")
-        h1#hero-titlediv(
+        h1#hero-title(
           class="lines relative z-10 text-center font-playfair uppercase text-text ~text-[2.75rem]/[9.5rem] ~mb-[2.5rem]/[5rem]"
         ) 
           span(class="line")
@@ -297,7 +297,7 @@ block content
               alt=""
             )
           div(
-            class="sm2:~-mt-24/12 ~sm2:~gap-x-6/20 flex flex-wrap items-center justify-center gap-y-3 self-center justify-self-center px-4"
+            class="flex flex-wrap items-center justify-center gap-y-3 self-center justify-self-center px-4 ~sm2:~gap-x-6/20 sm2:~-mt-24/12"
           )
             +button(
               class="relative border-none !p-0 font-playfair italic text-accent-oncolor opacity-70 !~text-xl/5xl !~pb-1/3 after:absolute after:bottom-0 after:h-[0.16875rem] after:w-full after:scale-0 after:bg-current after:transition-transform after:duration-300 hover:bg-transparent hover:text-accent-oncolor hover:opacity-100 aria-[current=true]:opacity-100 aria-[current=true]:after:scale-100",
@@ -313,22 +313,22 @@ block content
               data-features-tabs-trigger="2"
             ) Безопасность
         div(
-          class="grid-stack view-animation sm2:~mr-8/14 sm2:~ml-8/14 min-h-[13.625rem] self-end justify-self-end bg-accent leading-[1.4] text-accent-oncolor ~mb-[-8rem]/[-3.75rem] ~p-4/8 md:ml-0 md:max-w-[35rem]"
+          class="grid-stack view-animation min-h-[13.625rem] self-end justify-self-end sm2:mt-[35%] sm2:~mr-8/14 sm2:~ml-8/14 md:ml-0 md:max-w-[35rem]"
         )
-          p(
-            class="transition-all duration-300 aria-hidden:invisible aria-hidden:opacity-0",
-            data-features-tabs-content=""
-          ) Двор в&nbsp;форме бассейна утоплен в&nbsp;ландшафте и&nbsp;скрыт уровнем расположения и&nbsp;ограждением от&nbsp;сторонних глаз и&nbsp;доступа чужих людей. Играть, отдыхать и&nbsp;работать на&nbsp;улице с&nbsp;поддержкой общедомового интернета удобно и&nbsp;комфортно.
-          p(
-            class="transition-all duration-300 aria-hidden:invisible aria-hidden:opacity-0",
-            aria-hidden="true",
-            data-features-tabs-content=""
-          ) Играть, отдыхать и&nbsp;работать на&nbsp;улице с&nbsp;поддержкой общедомового интернета удобно и&nbsp;комфортно.
-          p(
-            class="transition-all duration-300 aria-hidden:invisible aria-hidden:opacity-0",
-            aria-hidden="true",
+          div(
+            class="bg-accent leading-[1.4] text-accent-oncolor transition-all duration-500 ~p-4/8 aria-hidden:invisible aria-hidden:translate-y-12 aria-hidden:scale-90 aria-hidden:opacity-0",
             data-features-tabs-content=""
           ) Приватный двор закрыт от&nbsp;проезда любого транспорта, кроме пожарной машины. Здесь безопасно и&nbsp;спокойно как взрослым, так и&nbsp;детям. Двор в&nbsp;форме бассейна утоплен в&nbsp;ландшафте и&nbsp;скрыт уровнем расположения и&nbsp;ограждением от&nbsp;сторонних глаз и&nbsp;доступа чужих людей. Играть, отдыхать и&nbsp;работать на&nbsp;улице с&nbsp;поддержкой общедомового интернета удобно и&nbsp;комфортно.
+          div(
+            class="bg-accent leading-[1.4] text-accent-oncolor transition-all duration-500 ~p-4/8 aria-hidden:invisible aria-hidden:translate-y-12 aria-hidden:scale-90 aria-hidden:opacity-0",
+            data-features-tabs-content="",
+            aria-hidden="true"
+          ) Особые конструкции, размеры и&nbsp;количество окон избавят Вас от&nbsp;промерзаний и&nbsp;продуваний, при этом позволят максимально легко контролировать уровень света в&nbsp;каждом помещении. Для притока свежего воздуха с&nbsp;возможностью контроля его чистоты и&nbsp;температуры мы&nbsp;используем приточные системы с&nbsp;угольными фильтрами и&nbsp;подогревом.
+          div(
+            class="bg-accent leading-[1.4] text-accent-oncolor transition-all duration-500 ~p-4/8 aria-hidden:invisible aria-hidden:translate-y-12 aria-hidden:scale-90 aria-hidden:opacity-0",
+            data-features-tabs-content="",
+            aria-hidden="true"
+          ) Современные системы видеонаблюдения, регистрации доступа, возрастного ограничения и&nbsp;управления всеми входными группами с&nbsp;приложения телефона уменьшат объем переносимых ключей и&nbsp;гаджетов и&nbsp;существенно повысят уровень ответственности жильцов и&nbsp;гостей нашего дома.
     section#benefits(class="mt-[12.5rem]")
       div(class="container")
         h2(
@@ -386,7 +386,7 @@ block content
           class="swiper max-md:container md:ml-[calc(0.5/12*100%)] md:w-[calc(9.5/12*100%)]",
           data-benefits-slider=""
         )
-          div(class="swiper-wrapper sm2:[&>*]:w-[47.5%] [&>*:not(:last-child)]:~mr-6/14")
+          div(class="swiper-wrapper [&>*:not(:last-child)]:~mr-6/14 sm2:[&>*]:w-[47.5%]")
             article(class="swiper-slide")
               div(class="relative mb-6 pt-[66.5%]")
                 img(
@@ -396,7 +396,7 @@ block content
               h5(
                 class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
               ) Входные узлы
-              p(class="mt-3 leading-[1.4]") Прямой доступ с&nbsp;парковочной зоны вдоль Анатолия позволяет осуществлять как транспортировку тяжелых грузов, так и&nbsp;использовать дополнительный вход для разного рода доставок или более короткого пути домой
+              p(class="mt-3 leading-[1.4]") Прямой доступ с&nbsp;парковочной зоны вдоль Анатолия позволяет осуществлять как транспортировку тяжелых грузов, так и&nbsp;использовать дополнительный вход для разного рода доставок или более короткого пути домой.
             article(class="swiper-slide")
               div(class="relative mb-6 pt-[66.5%]")
                 img(
@@ -406,7 +406,7 @@ block content
               h5(
                 class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
               ) Парадный вход
-              p(class="mt-3 leading-[1.4]") Прямой доступ с&nbsp;парковочной зоны вдоль Анатолия позволяет осуществлять как транспортировку тяжелых грузов, так и&nbsp;использовать дополнительный вход для разного рода доставок или более короткого пути домой
+              p(class="mt-3 leading-[1.4]") Здесь мы&nbsp;разместили места для сезонного хранения колясок и&nbsp;велосипедо&mdash;самокатного транспорта летом или ватрушек со&nbsp;снегокатами зимой. Жителям дома доступен гостевой санузел, а&nbsp;для хвостатых жителей предусмотрена мойка лап.
             article(class="swiper-slide")
               div(class="relative mb-6 pt-[66.5%]")
                 img(
@@ -415,11 +415,81 @@ block content
                 )
               h5(
                 class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
-              ) Входные узлы
-              p(class="mt-3 leading-[1.4]") Прямой доступ с&nbsp;парковочной зоны вдоль Анатолия позволяет осуществлять как транспортировку тяжелых грузов, так и&nbsp;использовать дополнительный вход для разного рода доставок или более короткого пути домой
-    #view(class="container ~mt-20/48")
-      div(class="image-parallax view-animation")
-        img(src="assets/img/view.webp", alt="")
+              ) Уютное «мягкое» лобби
+              p(class="mt-3 leading-[1.4]") Для встречи гостей и&nbsp;уединения в&nbsp;тепле и&nbsp;тишине с&nbsp;wi-fi зоной, а&nbsp;также парадная лестница на&nbsp;второй этаж для тех, кто не&nbsp;любит пользоваться лифтом и&nbsp;считает ежедневно шаги и&nbsp;пролеты.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Планировки квартир
+              p(class="mt-3 leading-[1.4]") В&nbsp;каждой квартире, в&nbsp;зависимости от&nbsp;площади имеется несколько санузлов, постирочных и&nbsp;хозяйственных помещений, гардеробные комнаты. Кухня может быть компактной или расширена за&nbsp;счет гостиной комнаты. Проемы в&nbsp;капитальных стенах шире стандартных для гармонии с&nbsp;объемами помещений и&nbsp;высотой потолков. Мы&nbsp;создали мастер-спальни и&nbsp;увеличили площадь санузлов для большего комфорта и&nbsp;функциональных возможностей этих помещений.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Система звуко и шумо изоляции
+              p(class="mt-3 leading-[1.4]") При строительстве в&nbsp;стены, перегородки и&nbsp;пол встраиваются звукопоглощающие плиты из&nbsp;каменной ваты фирмы Роквулл (ROCKWOOL), мирового лидера в&nbsp;области звукоизоляции родом из&nbsp;Дании. А&nbsp;все вибрационные нагрузки от&nbsp;технологических и&nbsp;функциональных элементов дома сделали с&nbsp;применением уникальных решений, направленных на&nbsp;поддержание тишины и&nbsp;покоя при любых условиях.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Системы вентиляционных камер
+              p(class="mt-3 leading-[1.4]") Системы вентиляционных камер, проходящих через дом выполнены в&nbsp;специальных каналах со&nbsp;звуко и&nbsp;вибро- изоляционными материалами. Приоритет жильцов к&nbsp;тишине мы&nbsp;уважаем и&nbsp;реализуем максимально возможными современными решениями и&nbsp;материалами.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Встроенные в пол конвекторы
+              p(class="mt-3 leading-[1.4]") Отсутствие батарей под витражными окнами позволят более эффектно и&nbsp;эстетично использовать это пространство. А&nbsp;теплый пол в&nbsp;квартире, благодаря горизонтальной разводке отопления, подарит ногам ощущение летнего солнечного дня.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Бесшумный лифт
+              p(class="mt-3 leading-[1.4]") Большой, комфортный и&nbsp;бесшумный лифт доставит Вас на&nbsp;любой этаж и&nbsp;даже на&nbsp;подземный уровень, где у&nbsp;нас отдыхают автомобили, заряжаются электрокары и&nbsp;сосредоточено &laquo;живое&raquo; пространство для жителей. Мы&nbsp;внедрили умные лифты, которые &laquo;знают&raquo; о&nbsp;вашем движении и&nbsp;спускаются к&nbsp;Вам прежде чем вы&nbsp;нажимаете кнопку вызова.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Система водоподготовки
+              p(class="mt-3 leading-[1.4]") Вся вода в&nbsp;системе водопровода проходит механическую очистку, осветление (удаление железа и&nbsp;окисленных соединений), сорбирование (удаление неприятного привкуса, запаха, мутности и&nbsp;цветности), ионизирование и&nbsp;фильтрацию обратным осмосом. В&nbsp;результате вы&nbsp;получаете готовую воду для питья, приготовления пищи, ухода за&nbsp;собой, а&nbsp;также ваша бытовая техника: посудомоечная и&nbsp;стиральная машина, сантехнические приборы никогда не&nbsp;узнают о&nbsp;накипи и&nbsp;налете и&nbsp;прослужат очень долго и&nbsp;качественно.
+            article(class="swiper-slide")
+              div(class="relative mb-6 pt-[66.5%]")
+                img(
+                  src="../assets/img/benefits-1.webp",
+                  class="absolute inset-0 size-full object-cover"
+                )
+              h5(
+                class="font-playfair font-medium leading-normal text-accent ~text-lg/2xl"
+              ) Автомобили большого размера
+              p(class="mt-3 leading-[1.4]") Любители компактных багажников на&nbsp;крыше останутся довольны высотой парковки. Рекомендуем Вам покупку авто с&nbsp;электродвигателем. Его можно хранить и&nbsp;заряжать у&nbsp;нас. Мы&nbsp;обеспечиваем постоянную температуру на&nbsp;парковке на&nbsp;уровне +17&nbsp;градусов зимой и&nbsp;летом, чтобы Ваш авто служил очень долго и&nbsp;всегда был окружен теплом и&nbsp;заботой. На&nbsp;парковке для всех автомобилей доступен пункт подкачки шин, ведь эта задача не&nbsp;должна быть проблемой и&nbsp;испортить Вам настроение.
+    #view(class="~mt-20/48")
+      div(class="image-parallax view-animation max-h-[900px]")
+        img(src="assets/img/view.webp", class="size-full object-cover", alt="")
     section#neighbours(class="container ~mt-20/48") 
       h2(
         class="lines font-playfair leading-tight text-text ~text-[1.875rem]/[4.5rem]"
